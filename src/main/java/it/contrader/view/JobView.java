@@ -1,48 +1,41 @@
 package it.contrader.view;
 
 import java.util.List;
-
 import it.contrader.controller.Request;
-import it.contrader.dto.UserDTO;
+import it.contrader.dto.JobDTO;
 import it.contrader.main.MainDispatcher;
 
 
-/**
- * 
- * @author Vittorio
- *
- * Si osservi che alla View arrivano solo oggetti di tipo DTO!
- */
-public class UserView extends AbstractView {
+public class JobView extends AbstractView {
 
 	private Request request;
 	private String choice;
 
-	public UserView() {
+	public JobView() {
 		
 	}
 
 	/**
-	 * Mostra la lista utenti
+	 * Mostra la lista job
 	 */
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------------- Gestione utenti ----------------\n");
-			System.out.println("ID\tUsername\tPassword\tTipo Utente");
+			System.out.println("\n------------------- Gestione lavori ----------------\n");
+			System.out.println("ID\tMansione\tDescrizione");
 			System.out.println("----------------------------------------------------\n");
 			
 			@SuppressWarnings("unchecked")
-			List<UserDTO> users = (List<UserDTO>) request.get("users");
-			for (UserDTO u: users)
-				System.out.println(u);
+			List<JobDTO> jobs = (List<JobDTO>) request.get("jobs");
+			for (JobDTO j: jobs)
+				System.out.println(j);
 			System.out.println();
 		
 		}
 	}
 
 	/**
-	 * Chiede all'utente un input (lettera da tastiera) per la choice (vedi UserController). 
+	 * Chiede al job un input (lettera da tastiera) per la choice (vedi JobController). 
 	 * Mette la modalità GETCHOICE nella mode.
 	 */
 	@Override
@@ -63,7 +56,10 @@ public class UserView extends AbstractView {
 		request = new Request();
 		request.put("choice", choice);
 		request.put("mode", "GETCHOICE");
-		MainDispatcher.getInstance().callAction("User", "doControl", this.request);
+		MainDispatcher.getInstance().callAction("Job", "doControl", this.request);
 	}
 
 }
+
+
+
