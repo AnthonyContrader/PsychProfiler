@@ -32,8 +32,8 @@ public class JobReadView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			JobDTO cand = (JobDTO) request.get("Job");
-			System.out.println(cand);
+			JobDTO job = (JobDTO) request.get("Job");
+			System.out.println(job);
 			MainDispatcher.getInstance().callView("Job", null);
 		}
 	}
