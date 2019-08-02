@@ -71,8 +71,7 @@ public class CandDTO {
 
 	@Override
 	public String toString() {
-		return "CandDTO [id=" + id + ", name=" + name + ", surname=" + surname + ", age=" + age + ", experience="
-				+ experience + "]";
+		return  + id +"\t" + name +"\t\t"+ surname +"\t\t"+ age+"\t\t" + experience ;
 	}
 	
 	

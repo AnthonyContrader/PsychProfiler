@@ -38,7 +38,7 @@ public class JobDTO {
 	}
 	@Override
 	public String toString() {
-		return "JobDTO [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return  id + "\t"  + name +"\t\t" +   description + "\t\t" ;
 	}
 	
 
