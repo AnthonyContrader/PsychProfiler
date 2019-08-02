@@ -99,7 +99,7 @@ public class JobController implements Controller {
 			List<JobDTO> jobsDTO = jobService.getAll();
 			//Impacchetta la request con la lista degli user
 			request.put("jobs", jobsDTO);
-			MainDispatcher.getInstance().callView("Jobs", request);
+			MainDispatcher.getInstance().callView("Job", request);
 			break;
 			
 		//Esegue uno switch sulla base del comando inserito dall'utente e reindirizza tramite il Dispatcher alla View specifica per ogni operazione
@@ -125,7 +125,7 @@ public class JobController implements Controller {
 				MainDispatcher.getInstance().callView(sub_package + "JobDelete", null);
 				break;
 				
-			case "Q":
+			case "E":
 				MainDispatcher.getInstance().callView("Login", null);
 				break;
 

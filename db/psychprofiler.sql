@@ -99,7 +99,7 @@ CREATE TABLE `cand` (
 
 CREATE TABLE `job` (
   `name` varchar(16) NOT NULL,
-  `descrition` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
