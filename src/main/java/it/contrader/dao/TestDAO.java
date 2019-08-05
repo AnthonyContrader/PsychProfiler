@@ -8,16 +8,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Test;
 
 public class TestDAO implements DAO<Test> {
 
 	private final String QUERY_ALL = "SELECT * FROM test";
-	private final String QUERY_CREATE = "INSERT INTO test (quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5, quest6, ans6, quest7, ans7, quest8, ans8, quest9, ans9, quest10, ans10) VALUES (?,?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO test (idUser, quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM test WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE test SET quest1=?, ans1=?, quest2=?, ans2=? quest3=?, ans3=? quest4=?, ans4=? quest5=?, ans5=? quest6=?, ans6=? quest7=?, ans7=? quest8=?, ans8=? quest9=?, ans9=? quest10=?, ans10=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM cand WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE test SET idUser=?, quest1=?, ans1=?, quest2=?, ans2=? quest3=?, ans3=? quest4=?, ans4=? quest5=?, ans5=?  WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM test WHERE id=?";
 
 	public TestDAO() {
 
@@ -32,7 +33,7 @@ public class TestDAO implements DAO<Test> {
 			Test test;
 			while (resultSet.next()) {
 				int id = resultSet.getInt("id");
-				int iduser = resultSet.getInt("iduser");
+				int idUser = resultSet.getInt("idUser");
 				String quest1 = resultSet.getString("quest1");
 				String ans1 = resultSet.getString("ans1");
 				String quest2 = resultSet.getString("quest2");
@@ -43,18 +44,9 @@ public class TestDAO implements DAO<Test> {
 				String ans4 = resultSet.getString("ans4");
 				String quest5 = resultSet.getString("quest5");
 				String ans5 = resultSet.getString("ans5");
-				String quest6 = resultSet.getString("quest6");
-				String ans6 = resultSet.getString("ans6");
-				String quest7 = resultSet.getString("quest7");
-				String ans7 = resultSet.getString("ans7");
-				String quest8 = resultSet.getString("quest8");
-				String ans8 = resultSet.getString("ans8");
-				String quest9 = resultSet.getString("quest9");
-				String ans9 = resultSet.getString("ans9");
-				String quest10 = resultSet.getString("quest10");
-				String ans10 = resultSet.getString("ans10");
+
 				
-				test = new Test(quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5, quest6, ans6, quest7, ans7, quest8, ans8, quest9, ans9, quest10, ans10, id, iduser);
+				test = new Test(id, idUser ,quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5);
 				test.setId(id);
 				testsList.add(test);
 			}
@@ -68,30 +60,19 @@ public class TestDAO implements DAO<Test> {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
-			preparedStatement.setString(1, testToInsert.getQuest1());
-			preparedStatement.setString(2, testToInsert.getAns1());
-			preparedStatement.setString(3, testToInsert.getQuest2());
-			preparedStatement.setString(4, testToInsert.getAns2());
-			preparedStatement.setString(5, testToInsert.getQuest3());
-			preparedStatement.setString(6, testToInsert.getAns3());
-			preparedStatement.setString(7, testToInsert.getQuest4());
-			preparedStatement.setString(8, testToInsert.getAns4());
-			preparedStatement.setString(9, testToInsert.getQuest5());
-			preparedStatement.setString(10, testToInsert.getAns5());
-			preparedStatement.setString(11, testToInsert.getQuest6());
-			preparedStatement.setString(12, testToInsert.getAns6());
-			preparedStatement.setString(13, testToInsert.getQuest7());
-			preparedStatement.setString(14, testToInsert.getAns7());
-			preparedStatement.setString(15, testToInsert.getQuest8());
-			preparedStatement.setString(16, testToInsert.getAns8());
-			preparedStatement.setString(17, testToInsert.getQuest9());
-			preparedStatement.setString(18, testToInsert.getAns9());
-			preparedStatement.setString(19, testToInsert.getQuest10());
-			preparedStatement.setString(20, testToInsert.getAns10());
-			preparedStatement.setInt(21, testToInsert.getIdUser());
-			
+			preparedStatement.setInt(1, testToInsert.getIdUser());
+			preparedStatement.setString(2, testToInsert.getQuest1());
+			preparedStatement.setString(3, testToInsert.getAns1());
+			preparedStatement.setString(4, testToInsert.getQuest2());
+			preparedStatement.setString(5, testToInsert.getAns2());
+			preparedStatement.setString(6, testToInsert.getQuest3());
+			preparedStatement.setString(7, testToInsert.getAns3());
+			preparedStatement.setString(8, testToInsert.getQuest4());
+			preparedStatement.setString(9, testToInsert.getAns4());
+			preparedStatement.setString(10, testToInsert.getQuest5());
+			preparedStatement.setString(11, testToInsert.getAns5());
+
 	
-			preparedStatement.setInt(3, testToInsert.getIdUser());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -108,9 +89,9 @@ public class TestDAO implements DAO<Test> {
 			preparedStatement.setInt(1, testId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-			String quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5, quest6, ans6, quest7, ans7, quest8, ans8, quest9, ans9, quest10, ans10;
-			int iduser;
-
+			String quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5;
+			int idUser;
+			idUser = resultSet.getInt("idUser");
 			quest1 = resultSet.getString("quest1");
 			ans1 = resultSet.getString("ans1");
 			quest2 = resultSet.getString("quest2");
@@ -121,18 +102,8 @@ public class TestDAO implements DAO<Test> {
 			ans4 = resultSet.getString("ans4");
 			quest5 = resultSet.getString("quest5");
 			ans5 = resultSet.getString("ans5");
-			quest6 = resultSet.getString("quest6");
-			ans6 = resultSet.getString("ans6");
-			quest7 = resultSet.getString("quest7");
-			ans7 = resultSet.getString("ans7");
-			quest8 = resultSet.getString("quest8");
-			ans8 = resultSet.getString("ans8");
-			quest9 = resultSet.getString("quest9");
-			ans9 = resultSet.getString("ans9");
-			quest10 = resultSet.getString("quest10");
-			ans10 = resultSet.getString("ans10");
-			iduser = resultSet.getInt("iduser");
-			Test test = new Test(quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5, quest6, ans6, quest7, ans7, quest8, ans8, quest9, ans9, quest10, ans10, iduser);
+			
+			Test test = new Test (idUser,quest1,ans1,quest2,ans2,quest3,ans3,quest4,ans4,quest5,ans5);
 			test.setId(resultSet.getInt("id"));
 
 			return test;
@@ -153,6 +124,10 @@ public class TestDAO implements DAO<Test> {
 		if (!testRead.equals(testToUpdate)) {
 			try {
 				// Fill the userToUpdate object
+				if (testToUpdate.getIdUser() == 0) {
+					testToUpdate.setIdUser(testRead.getIdUser());
+				}
+
 				if (testToUpdate.getQuest1() == null || testToUpdate.getQuest1().equals("")) {
 					testToUpdate.setQuest1(testRead.getQuest1());
 				}
@@ -188,66 +163,22 @@ public class TestDAO implements DAO<Test> {
 				if (testToUpdate.getAns5() == null || testToUpdate.getAns5().equals("")) {
 					testToUpdate.setAns5(testRead.getAns5());
 				}
-				if (testToUpdate.getQuest6() == null || testToUpdate.getQuest6().equals("")) {
-					testToUpdate.setQuest6(testRead.getQuest6());
-				}
-
-				if (testToUpdate.getAns6() == null || testToUpdate.getAns6().equals("")) {
-					testToUpdate.setAns6(testRead.getAns6());
-				}
-				if (testToUpdate.getQuest7() == null || testToUpdate.getQuest7().equals("")) {
-					testToUpdate.setQuest7(testRead.getQuest7());
-				}
-
-				if (testToUpdate.getAns7() == null || testToUpdate.getAns7().equals("")) {
-					testToUpdate.setAns7(testRead.getAns7());
-				}
-				if (testToUpdate.getQuest8() == null || testToUpdate.getQuest8().equals("")) {
-					testToUpdate.setQuest8(testRead.getQuest8());
-				}
-
-				if (testToUpdate.getAns8() == null || testToUpdate.getAns8().equals("")) {
-					testToUpdate.setAns8(testRead.getAns8());
-				}
-				if (testToUpdate.getQuest9() == null || testToUpdate.getQuest9().equals("")) {
-					testToUpdate.setQuest9(testRead.getQuest9());
-				}
-
-				if (testToUpdate.getAns9() == null || testToUpdate.getAns9().equals("")) {
-					testToUpdate.setAns9(testRead.getAns9());
-				}
-				if (testToUpdate.getQuest10() == null || testToUpdate.getQuest10().equals("")) {
-					testToUpdate.setQuest10(testRead.getQuest10());
-				}
-
-				if (testToUpdate.getAns10() == null || testToUpdate.getAns10().equals("")) {
-					testToUpdate.setAns10(testRead.getAns10());
-				}
-				
 
 				// Update the test
+
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setString(1, testToUpdate.getQuest1());
-				preparedStatement.setString(2, testToUpdate.getAns1());
-				preparedStatement.setString(3, testToUpdate.getQuest2());
-				preparedStatement.setString(4, testToUpdate.getAns2());
-				preparedStatement.setString(5, testToUpdate.getQuest3());
-				preparedStatement.setString(6, testToUpdate.getAns3());
-				preparedStatement.setString(7, testToUpdate.getQuest4());
-				preparedStatement.setString(8, testToUpdate.getAns4());
-				preparedStatement.setString(9, testToUpdate.getQuest5());
-				preparedStatement.setString(10, testToUpdate.getAns5());
-				preparedStatement.setString(11, testToUpdate.getQuest6());
-				preparedStatement.setString(12, testToUpdate.getAns6());
-				preparedStatement.setString(13, testToUpdate.getQuest7());
-				preparedStatement.setString(14, testToUpdate.getAns7());
-				preparedStatement.setString(15, testToUpdate.getQuest8());
-				preparedStatement.setString(16, testToUpdate.getAns8());
-				preparedStatement.setString(17, testToUpdate.getQuest9());
-				preparedStatement.setString(18, testToUpdate.getAns9());
-				preparedStatement.setString(19, testToUpdate.getQuest10());
-				preparedStatement.setString(20, testToUpdate.getAns10());
-				preparedStatement.setInt(21, testToUpdate.getIdUser());
+				preparedStatement.setInt(1, testToUpdate.getIdUser());
+				preparedStatement.setString(2, testToUpdate.getQuest1());
+				preparedStatement.setString(3, testToUpdate.getAns1());
+				preparedStatement.setString(4, testToUpdate.getQuest2());
+				preparedStatement.setString(5, testToUpdate.getAns2());
+				preparedStatement.setString(6, testToUpdate.getQuest3());
+				preparedStatement.setString(7, testToUpdate.getAns3());
+				preparedStatement.setString(8, testToUpdate.getQuest4());
+				preparedStatement.setString(9, testToUpdate.getAns4());
+				preparedStatement.setString(10, testToUpdate.getQuest5());
+				preparedStatement.setString(11, testToUpdate.getAns5());
+
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

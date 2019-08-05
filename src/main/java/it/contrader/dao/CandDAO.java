@@ -17,7 +17,7 @@ public class CandDAO implements DAO<Cand> {
 	private final String QUERY_ALL = "SELECT * FROM cand";
 	private final String QUERY_CREATE = "INSERT INTO cand (name, surname,age,experience) VALUES (?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM cand WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE cand SET name=?, surname=?, age=?, experience=?, WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE cand SET name=?, surname=?, age=?, experience=?  WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM cand WHERE id=?";
 
 	public CandDAO() {

@@ -68,16 +68,6 @@ CREATE TABLE `test` (
   `ans4` varchar(255) NOT NULL,
   `quest5` varchar(255) NOT NULL,
   `ans5` varchar(255) NOT NULL,
-  `quest6` varchar(255) NOT NULL,
-  `ans6` varchar(255) NOT NULL,
-  `quest7` varchar(255) NOT NULL,
-  `ans7` varchar(255) NOT NULL,
-  `quest8` varchar(255) NOT NULL,
-  `ans8` varchar(255) NOT NULL,
-  `quest9` varchar(255) NOT NULL,
-  `ans9` varchar(255) NOT NULL,
-  `quest10` varchar(255) NOT NULL,
-  `ans10` varchar(255) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int (11) NOT NULL,
   PRIMARY KEY (`id`)
@@ -99,7 +89,7 @@ CREATE TABLE `cand` (
 
 CREATE TABLE `job` (
   `name` varchar(16) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `descripusertion` varchar(255) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

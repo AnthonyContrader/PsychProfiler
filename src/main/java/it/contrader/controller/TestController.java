@@ -12,13 +12,13 @@ public class TestController implements Controller {
 	 */
 	private static String sub_pakage = "test.";
 
-	private TestService testservice;
+	private TestService testService;
 
 	/**
 	 * Costruisce un oggetto di tipo TestService per poterne usare i metodi
 	 */
 	public TestController() {
-		this.testservice = new TestService();
+		this.testService = new TestService();
 	}
 
 	/**
@@ -40,6 +40,7 @@ public class TestController implements Controller {
 		// Definisce i campi della classe (serviranno sempre, tanto vale definirli una
 		// sola volta)
 		int id;
+		int idUser;
 		String quest1;
 		String ans1;
 		String quest2;
@@ -50,17 +51,7 @@ public class TestController implements Controller {
 		String ans4;
 		String quest5;
 		String ans5;
-		String quest6;
-		String ans6;
-		String quest7;
-		String ans7;
-		String quest8;
-		String ans8;
-		String quest9;
-		String ans9;
-		String quest10;
-		String ans10;
-		int idUser;
+
 
 		switch (mode) {
 
@@ -68,7 +59,7 @@ public class TestController implements Controller {
 		// alla TestReadView un test da mostrare
 		case "READ":
 			id = Integer.parseInt(request.get("id").toString());
-			TestDTO testDTO = testservice.read(id);
+			TestDTO testDTO = testService.read(id);
 			request.put("test", testDTO);
 			MainDispatcher.getInstance().callView(sub_pakage + "TestRead", request);
 			break;
@@ -76,33 +67,23 @@ public class TestController implements Controller {
 		// Arriva qui dalla TestInsertView. Estrae i parametri da inserire e chiama il
 		// service per inserire un test con questi parametri
 		case "INSERT":
-			quest1 = request.get("quest").toString();
-			ans1 = request.get("ans").toString();
-			quest2 = request.get("quest").toString();
-			ans2 = request.get("ans").toString();
-			quest3 = request.get("quest").toString();
-			ans3 = request.get("ans").toString();
-			quest4 = request.get("quest").toString();
-			ans4 = request.get("ans").toString();
-			quest5 = request.get("quest").toString();
-			ans5 = request.get("ans").toString();
-			quest6 = request.get("quest").toString();
-			ans6 = request.get("ans").toString();
-			quest7 = request.get("quest").toString();
-			ans7 = request.get("ans").toString();
-			quest8 = request.get("quest").toString();
-			ans8 = request.get("ans").toString();
-			quest9 = request.get("quest").toString();
-			ans9 = request.get("ans").toString();
-			quest10 = request.get("quest").toString();
-			ans10 = request.get("ans").toString();
 			idUser = Integer.parseInt(request.get("idUser").toString());
+			quest1 = request.get("quest1").toString();
+			ans1 = request.get("ans1").toString();
+			quest2 = request.get("quest2").toString();
+			ans2 = request.get("ans2").toString();
+			quest3 = request.get("quest3").toString();
+			ans3 = request.get("ans3").toString();
+			quest4 = request.get("quest4").toString();
+			ans4 = request.get("ans4").toString();
+			quest5 = request.get("quest5").toString();
+			ans5 = request.get("ans5").toString();
+
 
 			// costruisce l'oggetto test da inserire
-			TestDTO testtoinsert = new TestDTO(quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5,
-					quest6, ans6, quest7, ans7, quest8, ans8, quest9, ans9, quest10, ans10, idUser);
+			TestDTO testtoinsert = new TestDTO(idUser,quest1, ans1, quest2, ans2, quest3, ans3, quest4, ans4, quest5, ans5);
 			// invoca il service
-			testservice.insert(testtoinsert);
+			testService.insert(testtoinsert);
 			request = new Request();
 			request.put("mode", "mode");
 			// Rimanda alla view con la risposta
@@ -114,7 +95,7 @@ public class TestController implements Controller {
 		case "DELETE":
 			id = Integer.parseInt(request.get("id").toString());
 			// Qui chiama il service
-			testservice.delete(id);
+			testService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_pakage + "TestDelete", request);
@@ -122,30 +103,21 @@ public class TestController implements Controller {
 
 		// Arriva qui dalla TestUpdateView
 		case "UPDATE":
-			id = Integer.parseInt(request.get("id").toString());
-			quest1 = request.get("ans1").toString();
+			id= Integer.parseInt(request.getString("id").toString());
+			idUser = Integer.parseInt(request.get("idUser").toString());
+			quest1 = request.get("quest1").toString();
 			ans1 = request.get("ans1").toString();
-			quest2 = request.get("ans1").toString();
-			ans2 = request.get("ans1").toString();
-			quest3 = request.get("ans1").toString();
-			ans3 = request.get("ans1").toString();
-			quest4 = request.get("ans1").toString();
-			ans4 = request.get("ans1").toString();
-			quest5 = request.get("ans1").toString();
-			ans5 = request.get("ans1").toString();
-			quest6 = request.get("ans1").toString();
-			ans6 = request.get("ans1").toString();
-			quest7 = request.get("ans1").toString();
-			ans7 = request.get("ans1").toString();
-			quest8 = request.get("ans1").toString();
-			ans8 = request.get("ans1").toString();
-			quest9 = request.get("ans1").toString();
-			ans9 = request.get("ans1").toString();
-			quest10 = request.get("ans1").toString();
-			ans10 = request.get("ans1").toString();
-			TestDTO testtoupdate = new TestDTO();
+			quest2 = request.get("quest2").toString();
+			ans2 = request.get("ans2").toString();
+			quest3 = request.get("quest3").toString();
+			ans3 = request.get("ans3").toString();
+			quest4 = request.get("quest4").toString();
+			ans4 = request.get("ans4").toString();
+			quest5 = request.get("quest5").toString();
+			ans5 = request.get("ans5").toString();
+			TestDTO testtoupdate = new TestDTO(idUser, quest1, ans1, quest2, ans2, quest3,ans3, quest4,ans4,quest5,ans5);
 			testtoupdate.setId(id);
-			testservice.update(testtoupdate);
+			testService.update(testtoupdate);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_pakage + "TestUpdate", request);
@@ -154,7 +126,7 @@ public class TestController implements Controller {
 		// Arriva qui dalla UserView Invoca il Service e invia alla UserView il
 		// risultato da mostrare
 		case "TESTLIST":
-			List<TestDTO> testsDTO = testservice.getAll();
+			List<TestDTO> testsDTO = testService.getAll();
 			// Impacchetta la request con la lista dei test
 			request.put("tests", testsDTO);
 			MainDispatcher.getInstance().callView("Test", request);
