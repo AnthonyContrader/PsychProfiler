@@ -1,4 +1,4 @@
-<%@include file="headers/adminHeader.jsp" %>
+<%@include file="headers/adminHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +7,13 @@
 <link href="css/vittoriostyle.css" rel="stylesheet">
 </head>
 <body>
-<%@include file="css/header.jsp"%>
-<%@include file="menu/adminMenu.jsp"%>
+	<%@include file="css/header.jsp"%>
+	
+	<%@include file="menu/adminMenu.jsp"%>
 
-<%@include file="contents/adminContent.jsp"%>
+	<%@include file="contents/adminContent.jsp"%>
 
-
-<%@ include file="css/footer.jsp" %>
+	<%@ include file="css/footer.jsp"%>
 
 </body>
 </html>

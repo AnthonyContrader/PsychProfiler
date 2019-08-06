@@ -9,11 +9,7 @@
 </head>
 <body>
 <%@ include file="../css/header.jsp" %>
-<div class="navbar">
-  <a  href="homecand.jsp">Home</a>
-  <a class="active" href="CandServlet?mode=candlist">Cands</a>
-  <a href="LogoutServlet" id="logout">Logout</a>
-</div>
+<%@include file="../menu/candMenu.jsp" %>
 <div class="main">
 	<%
 		List<CandDTO> list = (List<CandDTO>) request.getAttribute("list");

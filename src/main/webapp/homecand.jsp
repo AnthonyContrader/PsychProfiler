@@ -8,9 +8,8 @@
 </head>
 <body>
 <%@include file="css/header.jsp"%>
+
 <%@include file="menu/candMenu.jsp"%>
-
-
 
 <%@include file="contents/candContent.jsp" %>
 
