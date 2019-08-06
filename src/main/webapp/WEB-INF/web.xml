@@ -23,6 +23,14 @@
     <servlet-name>CandServlet</servlet-name>
     <url-pattern>/CandServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>JobServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.JobServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JobServlet</servlet-name>
+    <url-pattern>/JobServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>

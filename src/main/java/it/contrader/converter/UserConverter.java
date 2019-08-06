@@ -46,7 +46,7 @@ public class UserConverter  implements Converter<User, UserDTO> {
 		//Cicla tutti gli elementi della lista e li converte uno a uno
 		for(User user : userList) {
 			//Utilizza il metodo toDTO per convertire ogni singolo elemento della lista
-			//e lo aggiunge adda lista di DTO
+			//e lo aggiunge alla lista di DTO
 			userDTOList.add(toDTO(user));
 		}
 		return userDTOList;
