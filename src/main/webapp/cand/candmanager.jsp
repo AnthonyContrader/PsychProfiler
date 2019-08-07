@@ -67,10 +67,10 @@
   </div>
     <div class="row">
     <div class="col-25">
-     <label for="Age">Age</label>
+     <label for="age">Age</label>
     </div>
     <div class="col-75">
-      <input type="text" id="age" name="age" placeholder="inserisci età"> 
+      <input type="number" id="age" name="age" placeholder="inserisci età"> 
     </div>
   </div>
     <div class="row">

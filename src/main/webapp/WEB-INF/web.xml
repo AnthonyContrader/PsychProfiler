@@ -31,6 +31,14 @@
     <servlet-name>JobServlet</servlet-name>
     <url-pattern>/JobServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AnswerServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.AnswerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AnswerServlet</servlet-name>
+    <url-pattern>/AnswerServlet</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
