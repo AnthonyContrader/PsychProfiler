@@ -43,6 +43,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>QuestionServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.QuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionServlet</servlet-name>
+    <url-pattern>/QuestionServlet</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>4000</session-timeout>
   </session-config>

@@ -38,7 +38,7 @@
 			<td><%=a.getAns()%></td>
 			<td><a href=AnswerServlet?mode=read&update=true&id=<%=a.getId_ans()%>>Edit</a>
 			</td>
-			<td><a href=UserServlet?mode=delete&id=<%=a.getId_ans()%>>Delete</a>
+			<td><a href=AnswerServlet?mode=delete&id=<%=a.getId_ans()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -52,7 +52,7 @@
 <form id="floatright" action="AnswerServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="id_cand">id_cand</label>
+      <label for="id_cand">Id_cand</label>
     </div>
     <div class="col-75">
       <input type="number" id="id_cand" name="id_cand" placeholder="inserisci id_cand">
@@ -60,7 +60,7 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="id_quest">id_quest</label>
+     <label for="id_quest">Id_quest</label>
     </div>
     <div class="col-75">
       <input type="number" id="id_quest" name="id_quest" placeholder="inserisci id_quest"> 

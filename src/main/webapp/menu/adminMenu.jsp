@@ -4,5 +4,6 @@
   <a href="CandServlet?mode=candlist">Cands</a>
   <a href="JobServlet?mode=joblist">Jobs</a>
   <a href="AnswerServlet?mode=answerlist">Risposte</a>
+    <a href="QuestionServlet?mode=questionlist">Domande</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>

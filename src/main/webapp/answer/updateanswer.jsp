@@ -16,7 +16,7 @@
 <%AnswerDTO a = (AnswerDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="UserServlet?mode=update&id=<%=a.getId_ans()%>" method="post">
+<form id="floatleft" action="AnswerServlet?mode=update&id=<%=a.getId_ans()%>" method="post">
   <div class="row">
     <div class="col-25">
       <label for="id_cand">id_cand</label>

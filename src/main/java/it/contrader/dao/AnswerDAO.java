@@ -11,9 +11,9 @@ import it.contrader.model.Answer;
 public class AnswerDAO implements DAO<Answer> {
 	
 	private final String QUERY_ALL="SELECT * FROM answer";
-	private final String QUERY_CREATE="INSERT INTO answer(id_cand,id_quest,ans) VALUES (?,?,?,?) ";
+	private final String QUERY_CREATE="INSERT INTO answer(id_cand,id_quest,ans) VALUES (?,?,?) ";
 	private final String QUERY_READ="SELECT * FROM answer  WHERE id_ans=?";
-	private final String QUERY_UPDATE="UPDATE answer SET id_cand=?, id_quest=?, ans=? ";
+	private final String QUERY_UPDATE="UPDATE answer SET id_cand=?, id_quest=?, ans=? WHERE id_ans=?";
 	private final String QUERY_DELETE="DELETE FROM answer WHERE id=?";
 	
 	public AnswerDAO(){

@@ -72,7 +72,7 @@ public class AnswerServlet  extends HttpServlet{
 			id_quest = Integer.parseInt(request.getParameter("id_quest").toString());
 			ans = Integer.parseInt(request.getParameter("ans").toString());
 			id_ans = Integer.parseInt(request.getParameter("id_ans"));
-			dto = new AnswerDTO (id_ans,id_cand, id_quest, ans);
+			dto = new AnswerDTO (id_cand, id_quest, ans,id_ans);
 			answ = service.update(dto);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/answer/answermanager.jsp").forward(request, response);

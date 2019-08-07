@@ -18,12 +18,14 @@
 
 <table>
 	<tr> 
+		<th>id_ans</th>
 		<th>id_cand</th>
 		<th>id_quest</th>
 		<th>Ans</th>
 		<th></th>
 	</tr>
 	<tr>
+		<td><%=a.getId_ans()%></td>
 		<td><%=a.getId_cand()%></td>
 		<td> <%=a.getId_quest()%></td>
 		<td> <%=a.getAns()%></td>
