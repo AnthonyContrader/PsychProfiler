@@ -11,7 +11,7 @@
 	
 	<%@include file="menu/candMenu.jsp"%>
 
-	<%@include file="contents/candContent.jsp"%>
+	<%@include file="contents/candcontent.jsp"%>
 
 	<%@ include file="css/footer.jsp"%>
 

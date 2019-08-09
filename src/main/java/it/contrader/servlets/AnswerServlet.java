@@ -32,7 +32,7 @@ public class AnswerServlet  extends HttpServlet{
 		AnswerDTO dto;
 		int id_ans;
 		boolean answ;
-
+		System.out.println("mode:"+mode);
 		switch (mode.toUpperCase()) {
 
 		case "ANSWERLIST":

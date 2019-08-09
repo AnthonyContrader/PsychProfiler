@@ -21,7 +21,7 @@ public class CandConverter  implements Converter<Cand, CandDTO> {
 	 */
 	@Override
 	public CandDTO toDTO(Cand cand) {
-		CandDTO candDTO = new CandDTO(cand.getId(), cand.getName(), cand.getSurname(), cand.getAge() ,cand.getExperience());
+		CandDTO candDTO = new CandDTO(cand.getId_cand(), cand.getName(), cand.getSurname(), cand.getAge() ,cand.getExperience(),cand.getId_user());
 		return candDTO;
 	}
 
@@ -31,7 +31,7 @@ public class CandConverter  implements Converter<Cand, CandDTO> {
 	 */
 	@Override
 	public Cand toEntity(CandDTO candDTO) {
-		Cand cand = new Cand(candDTO.getId(), candDTO.getName(), candDTO.getSurname(),candDTO.getAge(), candDTO.getExperience());
+		Cand cand = new Cand(candDTO.getId_cand(), candDTO.getName(), candDTO.getSurname(),candDTO.getAge(), candDTO.getExperience(),candDTO.getId_user());
 		return cand;
 	}
 	

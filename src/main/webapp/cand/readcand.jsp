@@ -22,12 +22,14 @@
 		<th>Surname</th>
 		<th>Age</th>
 		<th>Experience</th>
+		<th>Id_user</th>
 	</tr>
 	<tr>
 		<td><%=c.getName()%></td>
 		<td> <%=c.getSurname()%></td>
 		<td> <%=c.getAge()%></td>
 		<td> <%=c.getExperience()%></td>
+		<td> <%=c.getId_user()%></td>
 	</tr>	
 </table>
 

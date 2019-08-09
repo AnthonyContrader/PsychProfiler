@@ -23,21 +23,23 @@
 			<th>Surname</th>
 			<th>Age</th>
 			<th>Experience</th>
-			<th></th>
+			<th>id_user</th>
 		</tr>
 		<%
 			for (CandDTO c : list) {
 		%>
 		<tr>
-			<td><a href=CandServlet?mode=read&id=<%=c.getId()%>>
-					<%=c.getName()%>
+			<td><a href=CandServlet?mode=read&idCand=<%=c.getId_cand()%>>
+					
 			</a></td>
+			<td><%=c.getName()%></td>
 			<td><%=c.getSurname()%></td>
 			<td><%=c.getAge()%></td>
 			<td><%=c.getExperience()%></td>
-			<td><a href=CandServlet?mode=read&update=true&id=<%=c.getId()%>>Edit</a>
+			<td><%=c.getId_user()%></td>
+			<td><a href=CandServlet?mode=read&update=true&idCand=<%=c.getId_cand()%>>Edit</a>
 			</td>
-			<td><a href=CandServlet?mode=delete&id=<%=c.getId()%>>Delete</a>
+			<td><a href=CandServlet?mode=delete&idCand=<%=c.getId_cand()%>>Delete</a>
 			</td>
 
 		</tr>
@@ -51,10 +53,10 @@
 <form id="floatright" action="CandServlet?mode=insert" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="Cand">Name</label>
+      <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="Cand" name="name" placeholder="inserisci nome">
+      <input type="text" id="name" name="name" placeholder="inserisci nome">
     </div>
   </div>
   <div class="row">
@@ -79,6 +81,14 @@
     </div>
     <div class="col-75">
       <input type="text" id="experience" name="experience" placeholder="inserisci esperienza"> 
+    </div>
+    </div>
+        <div class="row">
+    <div class="col-25">
+     <label for="idUser">id_user</label>
+    </div>
+    <div class="col-75">
+      <input type="number" id="idUser" name="idUser" placeholder="inserisci id_user"> 
     </div>
   </div>
       <button type="submit" >Insert</button>

@@ -16,13 +16,13 @@
 <%CandDTO c = (CandDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="CandServlet?mode=update&id=<%=c.getId()%>" method="post">
+<form id="floatleft" action="CandServlet?mode=update&idCand=<%=c.getId_cand()%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="cand">Name</label>
+      <label for="name">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="cand" name="name" value=<%=c.getName()%>>
+      <input type="text"  name="name" value=<%=c.getName()%>>
     </div>
   </div>
   <div class="row">
@@ -31,7 +31,7 @@
     </div>
     <div class="col-75">
       <input
-			type="text" id="Surname" name="surname" value=<%=c.getSurname()%>> 
+			type="text"  name="surname" value=<%=c.getSurname()%>> 
     </div>
   </div>
   <div class="row">
@@ -40,7 +40,7 @@
     </div>
     <div class="col-75">
       <input
-			type="number" id="Age" name="age" value=<%=c.getAge()%>> 
+			type="number"  name="age" value=<%=c.getAge()%>> 
     </div>
   </div>
     <div class="row">
@@ -49,8 +49,17 @@
     </div>
     <div class="col-75">
       <input
-			type="text" id="Experience" name="Expericence" value=<%=c.getExperience()%>> 
+			type="text" name="expericence" value=<%=c.getExperience()%>> 
     </div>
+    <div class="row">
+    <div class="col-25">
+     <label for="id_user">id_user</label>
+    </div>
+    <div class="col-75">
+      <input
+			type="number"  name="id_user" value=<%=c.getId_user()%>> 
+    </div>
+  </div>
   </div>
     
       <button type="submit" >Edit</button>

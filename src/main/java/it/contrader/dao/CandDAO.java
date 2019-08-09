@@ -15,10 +15,10 @@ import it.contrader.model.Cand;
 public class CandDAO implements DAO<Cand> {
 
 	private final String QUERY_ALL = "SELECT * FROM cand";
-	private final String QUERY_CREATE = "INSERT INTO cand (name, surname,age,experience) VALUES (?,?,?,?)";
-	private final String QUERY_READ = "SELECT * FROM cand WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE cand SET name=?, surname=?, age=?, experience=?  WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM cand WHERE id=?";
+	private final String QUERY_CREATE = "INSERT INTO cand (name, surname,age,experience, id_user) VALUES (?,?,?,?,?)";
+	private final String QUERY_READ = "SELECT * FROM cand WHERE id_cand=?";
+	private final String QUERY_UPDATE = "UPDATE cand SET name=?, surname=?, age=?, experience=?, id_user=? WHERE id_cand=?";
+	private final String QUERY_DELETE = "DELETE FROM cand WHERE id_cand=?";
 
 	public CandDAO() {
 
@@ -32,13 +32,15 @@ public class CandDAO implements DAO<Cand> {
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL);
 			Cand cand;
 			while (resultSet.next()) {
-				int id = resultSet.getInt("id");
+				int id_cand = resultSet.getInt("id_cand");
 				String name = resultSet.getString("name");
 				String surname = resultSet.getString("surname");
 				int age = resultSet.getInt("age");
 				String experience = resultSet.getString("experience");
-				cand = new Cand(name, surname,age, experience);
-				cand.setId(id);
+				int id_user = resultSet.getInt("id_user");
+
+				cand = new Cand( name, surname,age, experience,id_user);
+				cand.setId_cand(id_cand);
 				candsList.add(cand);
 			}
 		} catch (SQLException e) {
@@ -55,6 +57,7 @@ public class CandDAO implements DAO<Cand> {
 			preparedStatement.setString(2, candToInsert.getSurname());
 			preparedStatement.setInt(3, candToInsert.getAge());
 			preparedStatement.setString(4, candToInsert.getExperience());
+			preparedStatement.setInt(5, candToInsert.getId_user());
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -63,24 +66,25 @@ public class CandDAO implements DAO<Cand> {
 
 	}
 
-	public Cand read(int candId) {
+	public Cand read(int id_cand) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 
 
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_READ);
-			preparedStatement.setInt(1, candId);
+			preparedStatement.setInt(1, id_cand);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
 			String name, surname, experience;
-			int age;
+			int age,id_user;
 
 			name = resultSet.getString("name");
 			surname = resultSet.getString("surname");
 			age = resultSet.getInt("age");
 			experience = resultSet.getString("experience");
-			Cand cand = new Cand(name,surname, age, experience);
-			cand.setId(resultSet.getInt("id"));
+			id_user = resultSet.getInt("id_user");
+			Cand cand = new Cand(name,surname, age, experience,id_user);
+			cand.setId_cand(resultSet.getInt("id_cand"));
 
 			return cand;
 		} catch (SQLException e) {
@@ -93,10 +97,10 @@ public class CandDAO implements DAO<Cand> {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (candToUpdate.getId() == 0)
+		if (candToUpdate.getId_cand() == 0)
 			return false;
 
-		Cand candRead = read(candToUpdate.getId());
+		Cand candRead = read(candToUpdate.getId_cand());
 		if (!candRead.equals(candToUpdate)) {
 			try {
 				// Fill the userToUpdate object
@@ -115,14 +119,18 @@ public class CandDAO implements DAO<Cand> {
 				if (candToUpdate.getExperience() == null || candToUpdate.getExperience().equals("")) {
 					candToUpdate.setExperience(candRead.getExperience());
 				}
-				
+				if (candToUpdate.getId_user() == 0) {
+					candToUpdate.setId_user(candRead.getId_user());
+				}
+
 				// Update the cand
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, candToUpdate.getName());
 				preparedStatement.setString(2, candToUpdate.getSurname());
 				preparedStatement.setInt(3, candToUpdate.getAge());
 				preparedStatement.setString(4, candToUpdate.getExperience());
-				preparedStatement.setInt(5, candToUpdate.getId());
+				preparedStatement.setInt(5, candToUpdate.getId_user());
+				preparedStatement.setInt(6, candToUpdate.getId_cand());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;
@@ -138,11 +146,11 @@ public class CandDAO implements DAO<Cand> {
 
 	}
 
-	public boolean delete(int id) {
+	public boolean delete(int id_cand) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_DELETE);
-			preparedStatement.setInt(1, id);
+			preparedStatement.setInt(1, id_cand);
 			int n = preparedStatement.executeUpdate();
 			if (n != 0)
 				return true;
