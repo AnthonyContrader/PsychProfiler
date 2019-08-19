@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Job {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	
 	@Column(unique=true)
 	private String name;
