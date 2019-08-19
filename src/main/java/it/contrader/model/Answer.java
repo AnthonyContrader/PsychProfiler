@@ -1,12 +1,10 @@
 package it.contrader.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -24,9 +22,9 @@ public class Answer {
 	private Long id;
 	@OneToOne
 	private Cand cand;
-	@ManyToMany
-	Set<Quest> likedQuests;
-
+	
+	@ManyToOne
+	private Quest quest;
 	
 	private int ans;
 	
