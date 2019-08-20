@@ -1,56 +1,30 @@
 package it.contrader.converter;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.stereotype.Component;
 
 import it.contrader.dto.UserDTO;
+
 import it.contrader.model.User;
 
-public class ConverterUser {
+@Component
+public class ConverterUser extends AbstractConverter<User, UserDTO> {
 
-	public static UserDTO toDTO(User user) {
-		UserDTO userDTO = null;
-		if (user != null) {
-			userDTO = new UserDTO();
-			userDTO.setIdUser(user.getIdUser());
-			userDTO.setUsername(user.getUsername());
-			userDTO.setPassword(user.getPassword());
-			userDTO.setEmail(user.getEmail());
-			userDTO.setRuolo(user.getRuolo());
-		}
-		return userDTO;
-	}
-
-	public static User toEntity(UserDTO userDTO) {
+	@Override
+	public User toEntity(UserDTO userDTO) {
 		User user = null;
 		if (userDTO != null) {
-			user = new User();
-			user.setIdUser(userDTO.getIdUser());
-			user.setUsername(userDTO.getUsername());
-			user.setPassword(userDTO.getPassword());
-			user.setEmail(userDTO.getEmail());
-			user.setRuolo(userDTO.getRuolo());
+			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getUsertype());
 		}
 		return user;
 	}
 
-	public static List<UserDTO> toListDTO(List<User> list) {
-		List<UserDTO> listUserDTO = new ArrayList<>();
-		if (!list.isEmpty()) {
-			for (User user : list) {
-				listUserDTO.add(ConverterUser.toDTO(user));
-			}
-		}
-		return listUserDTO;
-	}
+	@Override
+	public UserDTO toDTO(User user) {
+		UserDTO userDTO = null;
+		if (user != null) {
+			userDTO = new UserDTO(user.getId(), user.getUsername(), user.getPassword(), user.getUsertype());
 
-	public static List<User> toListEntity(List<UserDTO> listUserDTO) {
-		List<User> list = new ArrayList<>();
-		if (!listUserDTO.isEmpty()) {
-			for (UserDTO userDTO : listUserDTO) {
-				list.add(ConverterUser.toEntity(userDTO));
-			}
 		}
-		return list;
+		return userDTO;
 	}
 }

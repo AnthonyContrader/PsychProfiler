@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.contrader.converter.ConverterJob;
-import it.contrader.converter.ConverterUser;
 import it.contrader.dao.JobRepository;
 import it.contrader.dao.UserRepository;
 import it.contrader.dto.JobDTO;
