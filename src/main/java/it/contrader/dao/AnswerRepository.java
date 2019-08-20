@@ -15,5 +15,5 @@ public interface AnswerRepository extends CrudRepository <Answer,Long> {
 	public Answer findAnswerByid(long id);
 	public List<Answer> findAllByQuest (Quest quest);
 	public List<Answer> findAllByCand (Cand cand);
-
+	
 }

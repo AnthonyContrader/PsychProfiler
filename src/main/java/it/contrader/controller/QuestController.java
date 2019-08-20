@@ -9,68 +9,74 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.dto.AnswerDTO;
-import it.contrader.model.Cand;
-import it.contrader.model.Quest;
-
-import it.contrader.services.AnswerService;
+import it.contrader.dto.QuestDTO;
+import it.contrader.services.QuestService;
 
 @Controller
-@RequestMapping("/answer")
-public class AnswerController {
-	@Autowired
-	private AnswerService service;
+@RequestMapping("/quest")
+public class QuestController {
 	
+	@Autowired
+	private QuestService service;
+
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "answer";
+		return "quest";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "answer";
+		return "quest";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updateanswer";
+		return "update";
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("cand") Cand cand,
-			@RequestParam("quest") Quest quest, @RequestParam("ans") int ans) {
+	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("args") String args,
+			@RequestParam("quest") String quest, @RequestParam("ans1") String ans1,
+			@RequestParam("ans2") String ans2, @RequestParam("ans3") String ans3, @RequestParam("ans4") String ans4 ) {
 
-		AnswerDTO dto = new AnswerDTO();
+		QuestDTO dto = new QuestDTO();
 		dto.setId(id);
-		dto.setCand(cand);
+		dto.setArgs(args);
 		dto.setQuest(quest);
-		dto.setAns(ans);
+		dto.setAns1(ans1);
+		dto.setAns2(ans2);
+		dto.setAns3(ans3);
+		dto.setAns4(ans4);
 		service.update(dto);
 		setAll(request);
-		return "answer";
+		return "quest";
 
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("cand") Cand cand,
-			@RequestParam("quest") Quest quest, @RequestParam("ans") int ans) {
-		AnswerDTO dto = new AnswerDTO();
-		dto.setCand(cand);
+	public String insert(HttpServletRequest request, @RequestParam("args") String args,
+			@RequestParam("quest") String quest, @RequestParam("ans1") String ans1,
+			 @RequestParam("ans2") String ans2, @RequestParam("ans3") String ans3, @RequestParam("ans4") String ans4) {
+		QuestDTO dto = new QuestDTO();
+		dto.setArgs(args);
 		dto.setQuest(quest);
-		dto.setAns(ans);
+		dto.setAns1(ans1);
+		dto.setAns2(ans2);
+		dto.setAns3(ans3);
+		dto.setAns4(ans4);
 		service.insert(dto);
 		setAll(request);
-		return "answer";
+		return "quest";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readanswer";
+		return "readquest";
 	}
 
 	@GetMapping("/logout")
@@ -83,5 +89,4 @@ public class AnswerController {
 		request.getSession().setAttribute("list", service.getAll());
 	}
 }
-
 
