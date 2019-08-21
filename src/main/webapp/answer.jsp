@@ -1,4 +1,5 @@
-<%@ page import="it.contrader.dto.AnswerDTO" import="java.util.*" 
+<%@ page import="it.contrader.dto.AnswerDTO" import="it.contrader.dto.CandDTO"
+		 import="it.contrader.dto.QuestDTO" import="java.util.*" 
 	language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -22,6 +23,9 @@
 	<div class="main">
 		<%
 			List<AnswerDTO> list = (List<AnswerDTO>) request.getSession().getAttribute("list");
+			List<CandDTO> Candlist = (List<CandDTO>)request.getSession().getAttribute("Candlist");
+			List<QuestDTO> Questlist = (List<QuestDTO>)request.getSession().getAttribute("Questlist");
+
 		%>
 
 		<br>
@@ -61,8 +65,15 @@
 					<label for="Cand">Cand</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="cand" name="cand"
-						placeholder="inserisci cand">
+				<select id="Cands" name="cand">
+						<%
+							for (CandDTO c : Candlist) {
+						%>
+						<option value=<%=c.getId()%>><%=c.getName()%></option>
+						<%
+							}
+						%>
+				</select>
 				</div>
 			</div>
 			<div class="row">
@@ -70,8 +81,15 @@
 					<label for="quest">Quest</label>
 				</div>
 				<div class="col-75">
-					<input type="number" id="quest" name="quest"
-						placeholder="inserisci quest">
+								<select id="Cands" name="cand">
+						<%
+							for (QuestDTO q : Questlist) {
+						%>
+						<option value=<%=q.getId()%>><%=q.getQuest()%></option>
+						<%
+							}
+						%>
+				</select>
 				</div>
 			</div>
 			<div class="row">

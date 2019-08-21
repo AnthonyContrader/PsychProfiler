@@ -1,5 +1,6 @@
 package it.contrader.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +13,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.contrader.dto.AnswerDTO;
 import it.contrader.model.Cand;
 import it.contrader.model.Quest;
-
 import it.contrader.services.AnswerService;
+import it.contrader.services.CandService;
+import it.contrader.services.QuestService;
 
 @Controller
 @RequestMapping("/answer")
 public class AnswerController {
 	@Autowired
 	private AnswerService service;
+	@Autowired
+	private CandService cService;
+	@Autowired
+	private QuestService qService;
 	
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
+		setAllCand(request);
+		setAllQuest(request);
 		return "answer";
 	}
 
@@ -82,6 +90,14 @@ public class AnswerController {
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
 	}
+	
+	private void setAllQuest(HttpServletRequest request) {
+		request.getSession().setAttribute("Questlist", qService.getAll());
+	}
+	private void setAllCand(HttpServletRequest request) {
+		request.getSession().setAttribute("Candlist", cService.getAll());
+	}
 }
+
 
 

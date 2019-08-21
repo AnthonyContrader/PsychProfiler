@@ -1,5 +1,6 @@
 package it.contrader.services;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class CandService extends AbstractService<Cand, CandDTO> {
 	public CandDTO findById(Long id) {
 		return converter.toDTO(repository.findCandById(id));
 	}
+
 
 
 }
