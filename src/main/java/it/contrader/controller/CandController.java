@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.contrader.dto.CandDTO;
 import it.contrader.model.User;
 import it.contrader.services.CandService;
+import it.contrader.services.UserService;
 
 @Controller
 @RequestMapping("/cand")
@@ -19,9 +20,13 @@ public class CandController {
 	@Autowired
 	private CandService service;
 	
+	@Autowired
+	private UserService uService;
+	
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
+		setAllUser(request);
 		return "cand";
 	}
 
@@ -85,5 +90,8 @@ public class CandController {
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
 	}
+	private void setAllUser(HttpServletRequest request) {
+		request.getSession().setAttribute("Userlist", uService.getAll());
+}
 }
 

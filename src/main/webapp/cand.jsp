@@ -1,4 +1,4 @@
-<%@ page import="it.contrader.dto.CandDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.CandDTO"  import="it.contrader.dto.UserDTO" import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -20,6 +20,7 @@
 	<div class="main">
 		<%
 			List<CandDTO> list = (List<CandDTO>) request.getSession().getAttribute("list");
+		    List<UserDTO> Userlist = (List<UserDTO>) request.getSession().getAttribute("Userlist");
 		%>
 
 		<br>
@@ -104,8 +105,16 @@
 					<label for="user">User</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="user" name="user"
-						placeholder="inserisci user">
+					<select id ="User" name ="user" >
+					<%
+					  for (UserDTO u : Userlist) {
+					%>
+					<option value=<%=u.getId()%>><%=u.getUsername()%></option>
+					<%
+					}
+					%>
+					</select>
+						
 				</div>
 			</div>
 			
