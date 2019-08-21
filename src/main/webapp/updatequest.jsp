@@ -17,7 +17,7 @@
 <div class="navbar">
   <a href="/homeadmin.jsp">Home</a>
   <a class="active" href="/quest/getall">Quest</a>
-  <a href="/user/logout" id="logout">Logout</a>
+  <a href="/quest/logout" id="logout">Logout</a>
 </div>
 <br>
 <div class="main">
@@ -36,7 +36,7 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="Quest">quest</label>
+     <label for="quest">quest</label>
     </div>
     <div class="col-75">
       <input

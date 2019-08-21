@@ -38,9 +38,8 @@
 				for (AnswerDTO a : list) {
 			%>
 			<tr>
-				<td><a href="/answer/read?id=<%=a.getId()%>">
-				</a></td>
-				<td> <%=a.getCand().getId()%></td>
+		
+				<td>		<a href="/answer/read?id=<%=a.getId()%>"> <%=a.getCand().getId()%></a></td>
 				<td> <%=a.getQuest().getId()%></td>
 				<td><%=a.getAns()%></td>
 				<td><a href="/answer/preupdate?id=<%=a.getId()%>">Edit</a></td>
