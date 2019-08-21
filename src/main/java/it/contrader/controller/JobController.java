@@ -21,14 +21,14 @@ public class JobController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "jobs";
+		return "job";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "jobs";
+		return "job";
 	}
 
 	@GetMapping("/preupdate")
@@ -47,7 +47,7 @@ public class JobController {
 		dto.setDescription(description);
 		service.update(dto);
 		setAll(request);
-		return "jobs";
+		return "job";
 
 	}
 
@@ -59,7 +59,7 @@ public class JobController {
 		dto.setDescription(description);
 		service.insert(dto);
 		setAll(request);
-		return "jobs";
+		return "job";
 	}
 
 	@GetMapping("/read")

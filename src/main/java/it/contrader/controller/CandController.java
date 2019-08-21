@@ -22,14 +22,14 @@ public class CandController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "cands";
+		return "cand";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "cands";
+		return "cand";
 	}
 
 	@GetMapping("/preupdate")
@@ -51,7 +51,7 @@ public class CandController {
 		dto.setUser(user);
 		service.update(dto);
 		setAll(request);
-		return "cands";
+		return "cand";
 
 	}
 
@@ -66,7 +66,7 @@ public class CandController {
 		dto.setUser(user);
 		service.update(dto);
 		setAll(request);
-		return "cands";
+		return "cand";
 	}
 
 	@GetMapping("/read")
