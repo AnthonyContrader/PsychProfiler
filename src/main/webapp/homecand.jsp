@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Homepage for Admin ">
+<meta name="description" content="Homepage for Cand ">
 <meta name="author" content="Vittorio Valent">
 
 <title>Home</title>
@@ -21,11 +21,7 @@
 
 
 	<div class="navbar">
-		<a class="active" href="/homeadmin.jsp">Home</a> <a href=/user/getall>Users</a>
-		<a href=/cand/getall>Cand</a>
-		<a href=/answer/getall>Answer</a>
-		<a href=/quest/getall>Quest</a>
-		<a href=/job/getall>Job</a>  
+		<a class="active" href="/homecand.jsp">Home</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 

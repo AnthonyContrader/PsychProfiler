@@ -32,20 +32,20 @@ public class AnswerController {
 		setAll(request);
 		setAllCand(request);
 		setAllQuest(request);
-		return "answer";
+		return "answer/answer";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "answer";
+		return "answer/answer";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updateanswer";
+		return "answer/updateanswer";
 	}
 
 	@PostMapping("/update")
@@ -59,7 +59,7 @@ public class AnswerController {
 		dto.setAns(ans);
 		service.update(dto);
 		setAll(request);
-		return "answer";
+		return "answer/answer";
 
 	}
 
@@ -72,13 +72,13 @@ public class AnswerController {
 		dto.setAns(ans);
 		service.insert(dto);
 		setAll(request);
-		return "answer";
+		return "answer/answer";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readanswer";
+		return "answer/readanswer";
 	}
 
 	@GetMapping("/logout")

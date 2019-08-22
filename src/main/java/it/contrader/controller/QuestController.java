@@ -22,20 +22,20 @@ public class QuestController {
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
-		return "quest";
+		return "quest/quest";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "quest";
+		return "quest/quest";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "update";
+		return "quest/updatequest";
 	}
 
 	@PostMapping("/update")
@@ -53,7 +53,7 @@ public class QuestController {
 		dto.setAns4(ans4);
 		service.update(dto);
 		setAll(request);
-		return "quest";
+		return "quest/quest";
 
 	}
 
@@ -70,13 +70,13 @@ public class QuestController {
 		dto.setAns4(ans4);
 		service.insert(dto);
 		setAll(request);
-		return "quest";
+		return "quest/quest";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readquest";
+		return "quest/readquest";
 	}
 
 	@GetMapping("/logout")

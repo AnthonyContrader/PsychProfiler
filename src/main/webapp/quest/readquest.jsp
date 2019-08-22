@@ -11,7 +11,7 @@
 <title>Read Quest</title>
 </head>
 <body>
-	<%@ include file="./css/header.jsp"%>
+	<%@ include file="../css/header.jsp"%>
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
 			href="/quest/getall">Quest</a> <a href="/quest/logout" id="logout">Logout</a>
@@ -51,6 +51,6 @@
 
 	</div>
 
-	<%@ include file="./css/footer.jsp"%>
+	<%@ include file="../css/footer.jsp"%>
 </body>
 </html>

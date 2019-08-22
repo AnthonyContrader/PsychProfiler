@@ -27,20 +27,20 @@ public class CandController {
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
 		setAllUser(request);
-		return "cand";
+		return "cand/cand";
 	}
 
 	@GetMapping("/delete")
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
-		return "cand";
+		return "cand/cand";
 	}
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "updatecand";
+		return "cand/updatecand";
     }
 	
 	@PostMapping("/update")
@@ -56,7 +56,7 @@ public class CandController {
 		dto.setUser(user);
 		service.update(dto);
 		setAll(request);
-		return "cand";
+		return "cand/cand";
 
 	}
 
@@ -71,14 +71,14 @@ public class CandController {
 		dto.setUser(user);
 		service.update(dto);
 		setAll(request);
-		return "cand";
+		return "cand/cand";
 	}
 
 	@GetMapping("/read")
 	public String read(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
 			@RequestParam("surname") String surname, @RequestParam("age") int age, @RequestParam("experience") String experience, @RequestParam("user") String user) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "readcand";
+		return "cand/readcand";
 	}
 
 	@GetMapping("/logout")
