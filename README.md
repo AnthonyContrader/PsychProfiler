@@ -1,1 +1,2 @@
-# PsychProfiler
+# SAMPLE
+Sample Projects
