@@ -34,6 +34,8 @@ public class CandController {
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
+		setAll(request);
+
 		return "cand/cand";
 	}
 
@@ -56,6 +58,7 @@ public class CandController {
 		dto.setUser(user);
 		service.update(dto);
 		setAll(request);
+		setAllUser(request);
 		return "cand/cand";
 
 	}

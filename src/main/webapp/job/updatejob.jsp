@@ -29,7 +29,7 @@
   
   <div class="row">
     <div class="col-25">
-      <label for="job">Name</label>
+      <label for="job">Nome</label>
     </div>
     <div class="col-75">
       <input type="text" id="job" name="name" value=<%=j.getName()%>>
@@ -38,7 +38,7 @@
   
   <div class="row">
     <div class="col-25">
-     <label for="desc">Description</label>
+     <label for="desc">Descrizione</label>
     </div>
     <div class="col-75">
       <input type="text" id="desc" name="description" value=<%=j.getDescription()%>> 
@@ -46,7 +46,7 @@
     	<input type="hidden" name="id" value =<%=j.getId() %>>
   </div>
   
-      <button type="submit" >Edit</button>
+      <button type="submit" >Update</button>
 </form>
 
 	

@@ -15,7 +15,7 @@
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/cand/getall">Cands</a> <a href="/cand/logout" id="logout">Logout</a>
+			href="/cand/getall">Candidato</a> <a href="/cand/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
@@ -27,11 +27,11 @@
 
 		<table>
 			<tr>
-				<th>Name</th>
-				<th>Surname</th>
-				<th>Age</th>
-				<th>Experience</th>
-				<th>User</th>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Età</th>
+				<th>Esperienza</th>
+				<th>Username</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -44,11 +44,11 @@
 				<td><%=c.getSurname()%></td>
 				<td><%=c.getAge()%></td>
 				<td><%=c.getExperience()%></td>
-				<td><%=c.getUser().getId()%></td>
-				<td><a href="/cand/preupdate?id=<%=c.getId()%>">Edit</a></td>
+				<td><%=c.getUser().getUsername()%></td>
+				<td><a href="/cand/preupdate?id=<%=c.getId()%>">Update</a></td>
 
 
-				<td><a href="/cand/delete?id=<%=c.getId()%>">Delete</a></td>
+				<td><a href="/cand/delete?id=<%=c.getId()%>">Cancella</a></td>
 
 			</tr>
 			<%
@@ -62,7 +62,7 @@
 			
 			<div class="row">
 				<div class="col-25">
-					<label for="name">Name</label>
+					<label for="name">Nome</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="name" name="name"
@@ -72,7 +72,7 @@
 			
 			<div class="row">
 				<div class="col-25">
-					<label for="surn">Surname</label>
+					<label for="surn">Cognome</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="surn" name="surname"
@@ -82,7 +82,7 @@
 			
 			<div class="row">
 				<div class="col-25">
-					<label for="age">Age</label>
+					<label for="age">Età</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="age" name="age"
@@ -92,7 +92,7 @@
 			
 			<div class="row">
 				<div class="col-25">
-					<label for="expe">Experience</label>
+					<label for="expe">Esperienza</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="expe" name="experience"
@@ -102,7 +102,7 @@
 			
 			<div class="row">
 				<div class="col-25">
-					<label for="user">User</label>
+					<label for="user">Username</label>
 				</div>
 				<div class="col-75">
 					<select id ="User" name ="user" >
@@ -118,7 +118,7 @@
 				</div>
 			</div>
 			
-			<button type="submit">Insert</button>
+			<button type="submit">Inserisci</button>
 		</form>
 
 	</div>

@@ -18,7 +18,7 @@
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/quest/getall">Quest</a> <a href="/quest/logout" id="logout">Logout</a>
+			href="/quest/getall">Domanda</a> <a href="/quest/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
@@ -29,12 +29,12 @@
 
 		<table>
 			<tr>
-				<th>Args</th>
-				<th>quest</th>
-				<th>Ans1</th>
-				<th>Ans2</th>
-				<th>Ans3</th>
-				<th>Ans4</th>
+				<th>Argomento</th>
+				<th>Domanda</th>
+				<th>Risposta 1</th>
+				<th>Risposta 2</th>
+				<th>Risposta 3</th>
+				<th>Risposta 4</th>
 			</tr>
 			<%
 				for (QuestDTO q : list) {
@@ -47,10 +47,10 @@
 				<td><%=q.getAns2()%></td>
 				<td><%=q.getAns3()%></td>
 				<td><%=q.getAns4()%></td>
-				<td><a href="/quest/preupdate?id=<%=q.getId()%>">Edit</a></td>
+				<td><a href="/quest/preupdate?id=<%=q.getId()%>">Update</a></td>
 
 
-				<td><a href="/quest/delete?id=<%=q.getId()%>">Delete</a></td>
+				<td><a href="/quest/delete?id=<%=q.getId()%>">Cancella</a></td>
 
 			</tr>
 			<%
@@ -63,7 +63,7 @@
 		<form id="floatright" action="/quest/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="args">args</label>
+					<label for="args">Argomento</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="quest" name="args"
@@ -72,7 +72,7 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="quest">Quest</label>
+					<label for="quest">Domanda</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="quest" name="quest"
@@ -81,7 +81,7 @@
 			</div>
 						<div class="row">
 				<div class="col-25">
-					<label for="ans1">Ans1</label>
+					<label for="ans1">Risposta 1</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="quest" name="ans1"
@@ -90,7 +90,7 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="ans2">Ans2</label>
+					<label for="ans2">Risposta 2</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="quest" name="ans2"
@@ -99,7 +99,7 @@
 			</div>
 						<div class="row">
 				<div class="col-25">
-					<label for="ans3">Ans3</label>
+					<label for="ans3">Risposta 3</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="quest" name="ans3"
@@ -108,7 +108,7 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="ans4">Ans4</label>
+					<label for="ans4">Risposta 4</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="quest" name="ans4"
@@ -118,7 +118,7 @@
 	
   </div>
 
-			<button type="submit">Insert</button>
+			<button type="submit">Inserisci</button>
 		</form>
 
 	</div>

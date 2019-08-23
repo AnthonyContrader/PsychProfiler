@@ -15,7 +15,7 @@
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/job/getall">Jobs</a> <a href="/job/logout" id="logout">Logout</a>
+			href="/job/getall">Lavoro</a> <a href="/job/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
@@ -26,8 +26,8 @@
 
 		<table>
 			<tr>
-				<th>Name</th>
-				<th>Description</th>
+				<th>Nome</th>
+				<th>Descrizione</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -38,10 +38,10 @@
 				<td><a href="/job/read?id=<%=u.getId()%>"> <%=u.getName()%>
 				</a></td>
 				<td><%=u.getDescription()%></td>
-				<td><a href="/job/preupdate?id=<%=u.getId()%>">Edit</a></td>
+				<td><a href="/job/preupdate?id=<%=u.getId()%>">Update</a></td>
 
 
-				<td><a href="/job/delete?id=<%=u.getId()%>">Delete</a></td>
+				<td><a href="/job/delete?id=<%=u.getId()%>">Cancella</a></td>
 
 			</tr>
 			<%
@@ -54,7 +54,7 @@
 		<form id="floatright" action="/job/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="job">Name</label>
+					<label for="job">Nome</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="job" name="name"
@@ -63,14 +63,14 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="pass">Description</label>
+					<label for="pass">Descrizione</label>
 				</div>
 				<div class="col-75">
 					<input type="text" id="pass" name="description"
 						placeholder="inserisci la descrizione">
 				</div>
 			</div>
-			<button type="submit">Insert</button>
+			<button type="submit">Inserisci</button>
 		</form>
 
 	</div>

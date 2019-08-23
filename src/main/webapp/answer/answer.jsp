@@ -1,7 +1,7 @@
-<%@ page import="it.contrader.dto.AnswerDTO" import="it.contrader.dto.CandDTO"
-		 import="it.contrader.dto.QuestDTO" import="java.util.*" 
-	language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page import="it.contrader.dto.AnswerDTO"
+	import="it.contrader.dto.CandDTO" import="it.contrader.dto.QuestDTO"
+	import="java.util.*" language="java"
+	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,27 +14,26 @@
 <title>Answer Manager</title>
 </head>
 <body>
-<%@ include file="../css/header.jsp"%>
+	<%@ include file="../css/header.jsp"%>
 
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/answer/getall">Answer</a> <a href="/user/logout" id="logout">Logout</a>
+			href="/answer/getall">Risposta</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
 		<%
 			List<AnswerDTO> list = (List<AnswerDTO>) request.getSession().getAttribute("list");
-			List<CandDTO> Candlist = (List<CandDTO>)request.getSession().getAttribute("Candlist");
-			List<QuestDTO> Questlist = (List<QuestDTO>)request.getSession().getAttribute("Questlist");
-
+			List<CandDTO> Candlist = (List<CandDTO>) request.getSession().getAttribute("Candlist");
+			List<QuestDTO> Questlist = (List<QuestDTO>) request.getSession().getAttribute("Questlist");
 		%>
 
 		<br>
 
 		<table>
 			<tr>
-				<th>Cand</th>
-				<th>Quest</th>
-				<th>ans</th>
+				<th>Candidato</th>
+				<th>Domanda</th>
+				<th>Risposta</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -42,14 +41,14 @@
 				for (AnswerDTO a : list) {
 			%>
 			<tr>
-		
-				<td>		<a href="/answer/read?id=<%=a.getId()%>"> <%=a.getCand().getId()%></a></td>
-				<td> <%=a.getQuest().getId()%></td>
+
+				<td><a href="/answer/read?id=<%=a.getId()%>"> <%=a.getCand().getName()%></a></td>
+				<td><%=a.getQuest().getQuest()%></td>
 				<td><%=a.getAns()%></td>
-				<td><a href="/answer/preupdate?id=<%=a.getId()%>">Edit</a></td>
+				<td><a href="/answer/preupdate?id=<%=a.getId()%>">Update</a></td>
 
 
-				<td><a href="/answer/delete?id=<%=a.getId()%>">Delete</a></td>
+				<td><a href="/answer/delete?id=<%=a.getId()%>">Cancella</a></td>
 
 			</tr>
 			<%
@@ -62,10 +61,10 @@
 		<form id="floatright" action="/answer/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="Cand">Cand</label>
+					<label for="Cand">Candidato</label>
 				</div>
 				<div class="col-75">
-				<select id="Cands" name="cand">
+					<select id="Cands" name="cand">
 						<%
 							for (CandDTO c : Candlist) {
 						%>
@@ -73,15 +72,15 @@
 						<%
 							}
 						%>
-				</select>
+					</select>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="quest">Quest</label>
+					<label for="quest">Domanda</label>
 				</div>
 				<div class="col-75">
-								<select id="Cands" name="cand">
+					<select id="Quest" name="quest">
 						<%
 							for (QuestDTO q : Questlist) {
 						%>
@@ -89,20 +88,20 @@
 						<%
 							}
 						%>
-				</select>
+					</select>
 				</div>
 			</div>
 			<div class="row">
-		<div class="col-25">
-					<label for="ans">ans</label>
+				<div class="col-25">
+					<label for="ans">Risposta</label>
 				</div>
 				<div class="col-75">
 					<input type="number" id="ans" name="ans"
 						placeholder="inserisci ans">
 				</div>
-				
+
 			</div>
-			<button type="submit">Insert</button>
+			<button type="submit">Inserisci</button>
 		</form>
 
 	</div>

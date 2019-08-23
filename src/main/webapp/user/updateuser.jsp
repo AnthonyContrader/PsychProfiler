@@ -45,7 +45,7 @@
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="type">Usertype</label>
+      <label for="type">Tipo</label>
     </div>
    		 <div class="col-75">
  			<select id="type" name="usertype">
@@ -55,7 +55,7 @@
     	</div>
     	<input type="hidden" name="id" value =<%=u.getId() %>>
   </div>
-      <button type="submit" >Edit</button>
+      <button type="submit" >Update</button>
 </form>
 
 	

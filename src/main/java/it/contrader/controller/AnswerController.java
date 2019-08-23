@@ -39,6 +39,8 @@ public class AnswerController {
 	public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
 		service.delete(id);
 		setAll(request);
+		setAllCand(request);
+		setAllQuest(request);
 		return "answer/answer";
 	}
 
@@ -59,12 +61,14 @@ public class AnswerController {
 		dto.setAns(ans);
 		service.update(dto);
 		setAll(request);
+		setAllCand(request);
+		setAllQuest(request);
 		return "answer/answer";
 
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("cand") Cand cand,
+	public String insert(HttpServletRequest request, @RequestParam("cand") Cand cand, 
 			@RequestParam("quest") Quest quest, @RequestParam("ans") int ans) {
 		AnswerDTO dto = new AnswerDTO();
 		dto.setCand(cand);
@@ -72,6 +76,8 @@ public class AnswerController {
 		dto.setAns(ans);
 		service.insert(dto);
 		setAll(request);
+		setAllCand(request);
+		setAllQuest(request);
 		return "answer/answer";
 	}
 

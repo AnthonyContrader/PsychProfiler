@@ -28,7 +28,7 @@
 <form id="floatleft" action="/quest/update" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="args">Args</label>
+      <label for="args">Argomento</label>
     </div>
     <div class="col-75">
       <input type="text" id=quest name="args" value=<%=q.getArgs()%>>
@@ -36,7 +36,7 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="quest">quest</label>
+     <label for="quest">Domanda</label>
     </div>
     <div class="col-75">
       <input
@@ -45,7 +45,7 @@
   </div>
   <div class="row">
     <div class="col-25">
-     <label for="ans1">ans1</label>
+     <label for="ans1">Risposta 1</label>
     </div>
     <div class="col-75">
       <input
@@ -53,7 +53,7 @@
     </div>
   </div>  <div class="row">
     <div class="col-25">
-     <label for="Quest">quest</label>
+     <label for="Quest">Risposta 2</label>
     </div>
     <div class="col-75">
       <input
@@ -62,7 +62,7 @@
   </div>
     <div class="row">
     <div class="col-25">
-     <label for="ans3">ans3</label>
+     <label for="ans3">Risposta 3</label>
     </div>
     <div class="col-75">
       <input
@@ -71,7 +71,7 @@
   </div>
     <div class="row">
     <div class="col-25">
-     <label for="ans4">ans4</label>
+     <label for="ans4">Risposta 4</label>
     </div>
     <div class="col-75">
       <input
@@ -79,7 +79,7 @@
     </div>
    <input type="hidden" name="id" value =<%=q.getId() %>> 
   </div>
-      <button type="submit" >Edit</button>
+      <button type="submit" >Update</button>
 </form>
 
 	

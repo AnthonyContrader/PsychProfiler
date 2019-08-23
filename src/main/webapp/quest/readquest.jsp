@@ -27,12 +27,12 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Args</th>
-				<th>Quest</th>
-				<th>Ans1</th>
-				<th>Ans2</th>
-				<th>Ans3</th>
-				<th>Ans4</th>
+				<th>Argomento</th>
+				<th>Domanda</th>
+				<th>Risposta 1</th>
+				<th>Risposta 2</th>
+				<th>Risposta 3</th>
+				<th>Risposta 4</th>
 			</tr>
 			<tr>
 				<td><%=q.getId()%></td>

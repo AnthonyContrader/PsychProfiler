@@ -28,7 +28,7 @@
 			<tr>
 				<th>Username</th>
 				<th>Password</th>
-				<th>Usertype</th>
+				<th>Tipo</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -40,10 +40,10 @@
 				</a></td>
 				<td><%=u.getPassword()%></td>
 				<td><%=u.getUsertype()%></td>
-				<td><a href="/user/preupdate?id=<%=u.getId()%>">Edit</a></td>
+				<td><a href="/user/preupdate?id=<%=u.getId()%>">Update</a></td>
 
 
-				<td><a href="/user/delete?id=<%=u.getId()%>">Delete</a></td>
+				<td><a href="/user/delete?id=<%=u.getId()%>">Cancella</a></td>
 
 			</tr>
 			<%
@@ -74,7 +74,7 @@
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="type">Usertype</label>
+					<label for="type">Tipo</label>
 				</div>
 				<div class="col-75">
 					<select id="type" name="usertype">
@@ -84,7 +84,7 @@
 					</select>
 				</div>
 			</div>
-			<button type="submit">Insert</button>
+			<button type="submit">Inserisci</button>
 		</form>
 
 	</div>

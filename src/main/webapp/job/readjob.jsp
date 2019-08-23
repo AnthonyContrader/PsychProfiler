@@ -27,8 +27,8 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Name</th>
-				<th>Description</th>
+				<th>Nome</th>
+				<th>Descrizione</th>
 			</tr>
 			<tr>
 				<td><%=j.getId()%></td>

@@ -15,7 +15,7 @@
 <%@ include file="../css/header.jsp"%>
 	<div class="navbar">
 		<a href="/homeadmin.jsp">Home</a> <a class="active"
-			href="/answer/getall">Users</a> <a href="/user/logout" id="logout">Logout</a>
+			href="/answer/getall">Risposta</a> <a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<br>
 
@@ -28,14 +28,14 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Cand</th>
-				<th>Quest</th>
-				<th>Ans</th>
+				<th>Candidato</th>
+				<th>Domanda</th>
+				<th>Numero di Risposta</th>
 			</tr>
 			<tr>
 				<td><%=a.getId()%></td>
-				<td><%=a.getCand().getId()%></td>
-				<td><%=a.getQuest().getId()%></td>
+				<td><%=a.getCand().getName()%></td>
+				<td><%=a.getQuest().getQuest()%></td>
 				<td><%=a.getAns()%></td>
 			</tr>
 		</table>
