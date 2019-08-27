@@ -1,6 +1,7 @@
 package it.contrader.controller;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,10 +28,12 @@ public abstract class AbstractController <DTO>{
 
 	@Autowired
 	private ServiceDTO<DTO> service;
+
 	
 	@GetMapping("/getall")
 	public Iterable<DTO> getAll(){
-		return service.getAll();		
+		return service.getAll();
+		
 	}
 	
 	@DeleteMapping("/delete")
@@ -54,4 +57,6 @@ public abstract class AbstractController <DTO>{
 	public DTO read(long id) {
 		return service.read(id);
 	}
+
+
 }
