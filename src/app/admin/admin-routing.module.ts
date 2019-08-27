@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from '../layout/admin-layout/admin-layout.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './users/users.component';
+import { JobComponent } from './job/job.component';
 import { CandComponent } from './cand/cand.component';
 
 /**
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminLayoutComponent, children:[
     { path: '', component: AdminDashboardComponent},
     { path: 'users', component: UsersComponent},
+    { path: 'job', component: JobComponent},
     { path: 'cand', component: CandComponent}
   ]}
 ];

@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Job
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="name" [(ngModel)]="jobtoinsert.name">
+            </td>
+            <td>
+              <input placeholder="description" [(ngModel)]="jobtoinsert.description">
+            </td>
+            <td>
+              <button (click)="insert(jobtoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let job of jobs">
+            <td>
+              <input [(ngModel)]="job.name">
+            </td>
+            <td>
+              <input [(ngModel)]="job.description">
+            </td>
+            <td>
+              <button (click)=update(job)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(job)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>
