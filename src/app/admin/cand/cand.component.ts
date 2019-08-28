@@ -26,7 +26,7 @@ export class CandComponent implements OnInit {
     this.service.getAll().subscribe(cands => this.cands = cands);
   }
   getUser() {
-    this.uService.getAll().subscribe(user => this.users = user);
+    this.uService.getAll().subscribe(users => this.users = users);
   }
 
   delete(cand: CandDTO) {

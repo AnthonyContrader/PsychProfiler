@@ -10,6 +10,8 @@ export class AdminMenuComponent implements OnInit {
 
   isUserCollapsed = false;
   isCandCollapsed=false;
+  isAnswerCollapsed=false;
+  isQuestCollapsed=false;
   isJobCollapsed=false;
   isClientCollapsed = false;
   isAccountCollapsed = false;
@@ -34,6 +36,16 @@ export class AdminMenuComponent implements OnInit {
     if (this.isCandCollapsed === false) {
       this.isCandCollapsed = true;
     } else { this.isCandCollapsed = false; }
+  }
+  questcollapse() {
+    if (this.isQuestCollapsed === false) {
+      this.isQuestCollapsed = true;
+    } else { this.isQuestCollapsed = false; }
+  }
+  answercollapse() {
+    if (this.isAnswerCollapsed === false) {
+      this.isAnswerCollapsed = true;
+    } else { this.isAnswerCollapsed = false; }
   }
   jobcollapse() {
     if (this.isJobCollapsed === false) {

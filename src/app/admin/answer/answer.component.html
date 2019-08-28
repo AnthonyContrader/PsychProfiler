@@ -1,0 +1,79 @@
+<div class="container">
+        <div class="row mt-5">
+          <div class="col-md-1">
+      
+          </div>
+          <div class="col-md-10">
+            <table>
+              <tr>
+                <th>
+                  Cand
+                </th>
+                <th>
+                  Quest
+                </th>
+                <th>
+                  Risposta
+                </th>
+                <th>
+                  Edit
+                </th>
+                <th>
+                  Risposta
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <input placeholder="name" [(ngModel)]="candtoinsert.name">
+                </td>
+                <td>
+                  <input placeholder="surname" [(ngModel)]="candtoinsert.surname">
+                </td>
+                <td>
+                    <input placeholder="age" [(ngModel)]="candtoinsert.age">
+                  </td>
+                <td>
+                    <input placeholder="experience" [(ngModel)]="candtoinsert.experience">
+                </td>
+                <td>
+                  <select  [(ngModel)]="candtoinsert.user">
+                    <option [ngValue]="user" *ngFor="let user of users">{{user.username}}</option>
+                  </select>
+                </td>
+                <td>
+                  <button (click)="insert(candtoinsert)">Insert</button>
+                </td>
+                <td>
+                  <button (click)="clear()">Clear</button>
+                </td>
+              </tr>
+              <tr *ngFor="let cand of cands">
+                <td>
+                  <input [(ngModel)]="cand.name">
+                </td>
+                <td>
+                  <input [(ngModel)]="cand.surname">
+                </td>
+                <td>
+                    <input [(ngModel)]="cand.age">
+                  </td>
+                  <td>
+                    <input [(ngModel)]="cand.experience">
+                  </td>
+                <td>
+                    {{cand.user.username}}
+                </td>
+                <td>
+                  <button (click)=update(cand)>Save</button>
+                </td>
+                <td>
+                  <button (click)="delete(cand)">Delete</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-1">
+      
+          </div>
+        </div>
+      </div>

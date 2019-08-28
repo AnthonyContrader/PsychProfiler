@@ -49,7 +49,31 @@
                     <a [routerLink]="['/admin-dashboard/job']"> <i class="fas fa-edit" style="margin-right: 10px">
                         </i> Manage job </a>
                 </button>
+                
             </div>
+            <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#quest"
+            (click)="questcollapse()">
+            <i class="fas fa-users" style="margin-right: 15px"></i>Domande
+        </button>
+        <div class="collapsebtn" id="cand" *ngIf="isQuestCollapsed">
+            <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+                <a [routerLink]="['/admin-dashboard/quest']"> <i class="fas fa-edit" style="margin-right: 10px">
+                    </i> Manage Domande </a>
+            </button>
+            
+        </div>
+        <button type="button" class="menubtn" data-toggle="collapsebtn" data-target="#answer"
+        (click)="answercollapse()">
+        <i class="fas fa-users" style="margin-right: 15px"></i>Risposte
+    </button>
+    <div class="collapsebtn" id="cand" *ngIf="isAnswerCollapsed">
+        <button class="menubtn" style="padding-left: 40px; background-color: #334247;">
+            <a [routerLink]="['/admin-dashboard/answer']"> <i class="fas fa-edit" style="margin-right: 10px">
+                </i> Manage Risposte </a>
+        </button>
+        
+    </div>
+      
          
         
             <button class="menubtn" (click)="logout()">
