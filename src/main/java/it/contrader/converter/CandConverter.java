@@ -24,7 +24,6 @@ public class CandConverter extends AbstractConverter<Cand,CandDTO> {
 			candDTO = new CandDTO(cand.getId(), cand.getName(), cand.getSurname(), cand.getAge(), cand.getExperience(), cand.getUser());
 
 		}
-		System.out.println("sto stampando il nome :"+cand.getName());
 		return candDTO;
 	}
 }
