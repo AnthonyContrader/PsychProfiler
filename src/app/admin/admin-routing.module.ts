@@ -26,8 +26,8 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent},
     { path: 'job', component: JobComponent},
     { path: 'cand', component: CandComponent},
-    { path: 'answer', component: CandComponent},
-    { path: 'quest', component: CandComponent}
+    { path: 'answer', component: AnswerComponent},
+    { path: 'quest', component: QuestComponent}
   ]}
 ];
 
