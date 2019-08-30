@@ -7,6 +7,7 @@ import { JobComponent } from './job/job.component';
 import { CandComponent } from './cand/cand.component';
 import { AnswerComponent } from './answer/answer.component';
 import { QuestComponent } from './quest/quest.component';
+import {CreatestComponent} from './createst/createst.component';
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -27,7 +28,9 @@ const routes: Routes = [
     { path: 'job', component: JobComponent},
     { path: 'cand', component: CandComponent},
     { path: 'answer', component: AnswerComponent},
-    { path: 'quest', component: QuestComponent}
+    { path: 'quest', component: QuestComponent},
+    { path: 'createst', component: CreatestComponent}
+
   ]}
 ];
 

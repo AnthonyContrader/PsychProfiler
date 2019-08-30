@@ -8,6 +8,7 @@ import { CandComponent } from './cand/cand.component';
 import { JobComponent } from './job/job.component';
 import { AnswerComponent } from './answer/answer.component';
 import { QuestComponent } from './quest/quest.component';
+import { CreatestComponent } from './createst/createst.component';
 
 /**
  * Modulo dell'admin, qui vengono dichiarate le component che utilizza 
@@ -18,7 +19,7 @@ import { QuestComponent } from './quest/quest.component';
  * @see AdminRoutingModule
  */
 @NgModule({
-  declarations: [AdminDashboardComponent, UsersComponent, CandComponent,JobComponent,AnswerComponent,QuestComponent],
+  declarations: [AdminDashboardComponent, UsersComponent, CandComponent,JobComponent,AnswerComponent,QuestComponent, CreatestComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

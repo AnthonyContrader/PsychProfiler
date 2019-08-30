@@ -8,16 +8,11 @@ import { QuestDTO } from 'src/dto/questdto';
 @Injectable({
   providedIn: 'root'
 })
-export class QuestService extends AbstractService<QuestDTO>{
- 
+export class CreatetestService extends AbstractService<QuestDTO>{
+
   constructor(http: HttpClient) {
     super(http);
-    this.type = 'quest';
+    this.type = 'createst';
   }
-
-  create(arg: string, num: number) : Observable<QuestDTO[]>{
-    return this.http.get<QuestDTO[]>('http://localhost:' + this.port + '/' + this.type + '/create?arg=' + arg+'&nquest='+num);
-  }
-
 
 }

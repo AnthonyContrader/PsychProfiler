@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private service: UserService, private router: Router) { }
 
+
   ngOnInit() {
   }
 
@@ -22,21 +23,25 @@ export class LoginComponent implements OnInit {
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
 
     this.service.login(this.loginDTO).subscribe((user) => {
-
+  
       if (user != null) {
         localStorage.setItem('currentUser', JSON.stringify(user));
 
         switch (user.usertype.toString()) {
           case 'ADMIN': {
+  
             this.router.navigate(['/admin-dashboard']);
             break;
           }
           case 'USER': {
+
             this.router.navigate(['/user-dashboard']);
             break;
           }
+          
           default:
             this.router.navigate(['/login']);
+            break;
         }
       }
     });

@@ -24,50 +24,41 @@
               </tr>
               <tr>
                 <td>
-                  <input placeholder="name" [(ngModel)]="candtoinsert.name">
+                        <select  [(ngModel)]="answertoinsert.cand">
+                                <option [ngValue]="cand" *ngFor="let cand of cands">{{cand.name}}</option>
+                              </select>
                 </td>
                 <td>
-                  <input placeholder="surname" [(ngModel)]="candtoinsert.surname">
+                      <select  [(ngModel)]="answertoinsert.quest">
+                        <option [ngValue]="quest" *ngFor="let quest of quests">{{quest.quest}}</option>
+                     </select>
                 </td>
                 <td>
-                    <input placeholder="age" [(ngModel)]="candtoinsert.age">
+                    <input  type="number" min="1" max="4" placeholder="ans" [(ngModel)]="answertoinsert.ans">
                   </td>
+               
                 <td>
-                    <input placeholder="experience" [(ngModel)]="candtoinsert.experience">
-                </td>
-                <td>
-                  <select  [(ngModel)]="candtoinsert.user">
-                    <option [ngValue]="user" *ngFor="let user of users">{{user.username}}</option>
-                  </select>
-                </td>
-                <td>
-                  <button (click)="insert(candtoinsert)">Insert</button>
+                  <button (click)="insert(answertoinsert)">Insert</button>
                 </td>
                 <td>
                   <button (click)="clear()">Clear</button>
                 </td>
               </tr>
-              <tr *ngFor="let cand of cands">
+              <tr *ngFor="let answer of answers">
                 <td>
-                  <input [(ngModel)]="cand.name">
+                  {{answer.cand.name}}
                 </td>
                 <td>
-                  <input [(ngModel)]="cand.surname">
+                  {{answer.quest.quest}}
                 </td>
                 <td>
-                    <input [(ngModel)]="cand.age">
-                  </td>
-                  <td>
-                    <input [(ngModel)]="cand.experience">
-                  </td>
-                <td>
-                    {{cand.user.username}}
+                 <input [(ngModel)]="answer.ans">
                 </td>
                 <td>
-                  <button (click)=update(cand)>Save</button>
+                  <button (click)=update(answer)>Save</button>
                 </td>
                 <td>
-                  <button (click)="delete(cand)">Delete</button>
+                  <button (click)="delete(answer)">Delete</button>
                 </td>
               </tr>
             </table>
