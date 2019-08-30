@@ -21,5 +21,10 @@ public class QuestService extends AbstractService<Quest,QuestDTO> {
 		return converter.toDTO(repository.findQuestById(id));
 	}
 
+	public Iterable<QuestDTO> getPar(String arg) {
+		// TODO Auto-generated method stub
+		return converter.toDTOList(repository.findByArgs(arg));
+	}
+
 }
 	

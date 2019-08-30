@@ -22,5 +22,7 @@ import it.contrader.model.Quest;
 public interface QuestRepository extends CrudRepository<Quest, Long>{
 
 	Quest findQuestById(long id);
+
+	Iterable<Quest> findByArgs(String arg);
 	
 }
