@@ -1,7 +1,8 @@
 {
     "generator-jhipster": {
         "promptValues": {
-            "packageName": "com.contrader.psychprofiler"
+            "packageName": "com.contrader.psychprofiler",
+            "nativeLanguage": "it"
         },
         "jhipsterVersion": "5.8.2",
         "applicationType": "gateway",
@@ -12,7 +13,7 @@
         "authenticationType": "jwt",
         "cacheProvider": "hazelcast",
         "enableHibernateCache": false,
-        "websocket": false,
+        "websocket": "spring-websocket",
         "databaseType": "sql",
         "devDatabaseType": "h2Disk",
         "prodDatabaseType": "mysql",
@@ -21,15 +22,17 @@
         "serviceDiscoveryType": "consul",
         "buildTool": "maven",
         "enableSwaggerCodegen": false,
-        "jwtSecretKey": "OTc0YmM3ZWNkMjMyYzdkNGE4ZWE3YzBjNDQ1MTY5MWRkZDA4NWI5ZDkzNGNkNWU2YzM0MTNmZmU4N2VjMDI5OTJlZWIzNmEwOGRmMTlmNWY4YTNiNjI1NDA2NTNiZWM2NDUyNmIwNDVjNGZjZTQxYjNiZmQ1NjVlZDExZTJiMjI=",
+        "jwtSecretKey": "YmI4ZjVjYTBmZTgxN2QyZTM3NTBiMGMwYzQyZDkxZjk2YzIxZGVkZWJiMTkzNmJmNjFiOGE3Zjk3NGJiMjQ0OTI1OTMzMTViNjVjODdlZTg1MjMxZmI3MmUyOTI4YTYzZmJjNzU3NzIzNWJmMTE3MDE5MDMzYmU5YmViZjdiZDI=",
         "clientFramework": "angularX",
-        "useSass": false,
+        "useSass": true,
         "clientPackageManager": "npm",
-        "testFrameworks": ["gatling"],
+        "testFrameworks": [],
         "jhiPrefix": "jhi",
         "entitySuffix": "",
         "dtoSuffix": "DTO",
         "otherModules": [],
-        "enableTranslation": false
+        "enableTranslation": true,
+        "nativeLanguage": "it",
+        "languages": ["it"]
     }
 }
