@@ -1,6 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager, JhiAlert, JhiAlertService } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,13 +11,14 @@ import { Subscription } from 'rxjs';
                     <pre [innerHTML]="alert.msg"></pre>
                 </ngb-alert>
             </div>
-        </div>`
+        </div>
+    `
 })
 export class JhiAlertErrorComponent implements OnDestroy {
     alerts: any[];
     cleanHttpErrorListener: Subscription;
     /* tslint:disable */
-    constructor(private alertService: JhiAlertService, private eventManager: JhiEventManager, private translateService: TranslateService) {
+    constructor(private alertService: JhiAlertService, private eventManager: JhiEventManager) {
         /* tslint:enable */
         this.alerts = [];
 
@@ -36,14 +36,14 @@ export class JhiAlertErrorComponent implements OnDestroy {
                     let errorHeader = null;
                     let entityKey = null;
                     arr.forEach(entry => {
-                        if (entry.endsWith('app-error')) {
+                        if (entry.toLowerCase().endsWith('app-error')) {
                             errorHeader = httpErrorResponse.headers.get(entry);
-                        } else if (entry.endsWith('app-params')) {
+                        } else if (entry.toLowerCase().endsWith('app-params')) {
                             entityKey = httpErrorResponse.headers.get(entry);
                         }
                     });
                     if (errorHeader) {
-                        const entityName = translateService.instant('global.menu.entities.' + entityKey);
+                        const entityName = entityKey;
                         this.addErrorAlert(errorHeader, errorHeader, { entityName });
                     } else if (httpErrorResponse.error !== '' && httpErrorResponse.error.fieldErrors) {
                         const fieldErrors = httpErrorResponse.error.fieldErrors;
@@ -54,7 +54,7 @@ export class JhiAlertErrorComponent implements OnDestroy {
                             }
                             // convert 'something[14].other[4].id' to 'something[].other[].id' so translations can be written to it
                             const convertedField = fieldError.field.replace(/\[\d*\]/g, '[]');
-                            const fieldName = translateService.instant('gatewayApp.' + fieldError.objectName + '.' + convertedField);
+                            const fieldName = convertedField.charAt(0).toUpperCase() + convertedField.slice(1);
                             this.addErrorAlert('Error on field "' + fieldName + '"', 'error.' + fieldError.message, { fieldName });
                         }
                     } else if (httpErrorResponse.error !== '' && httpErrorResponse.error.message) {
@@ -97,19 +97,14 @@ export class JhiAlertErrorComponent implements OnDestroy {
     }
 
     addErrorAlert(message, key?, data?) {
-        key = key && key !== null ? key : message;
-        this.alerts.push(
-            this.alertService.addAlert(
-                {
-                    type: 'danger',
-                    msg: key,
-                    params: data,
-                    timeout: 5000,
-                    toast: this.alertService.isToast(),
-                    scoped: true
-                },
-                this.alerts
-            )
-        );
+        const newAlert: JhiAlert = {
+            type: 'danger',
+            msg: message,
+            timeout: 5000,
+            toast: this.alertService.isToast(),
+            scoped: true
+        };
+
+        this.alerts.push(this.alertService.addAlert(newAlert, this.alerts));
     }
 }

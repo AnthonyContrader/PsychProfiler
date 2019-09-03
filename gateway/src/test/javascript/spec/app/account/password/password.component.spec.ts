@@ -5,8 +5,6 @@ import { Observable, of, throwError } from 'rxjs';
 import { GatewayTestModule } from '../../../test.module';
 import { PasswordComponent } from 'app/account/password/password.component';
 import { PasswordService } from 'app/account/password/password.service';
-import { JhiTrackerService } from 'app/core/tracker/tracker.service';
-import { MockTrackerService } from '../../../helpers/mock-tracker.service';
 
 describe('Component Tests', () => {
     describe('PasswordComponent', () => {
@@ -14,22 +12,15 @@ describe('Component Tests', () => {
         let fixture: ComponentFixture<PasswordComponent>;
         let service: PasswordService;
 
-        beforeEach(
-            async(() => {
-                TestBed.configureTestingModule({
-                    imports: [GatewayTestModule],
-                    declarations: [PasswordComponent],
-                    providers: [
-                        {
-                            provide: JhiTrackerService,
-                            useClass: MockTrackerService
-                        }
-                    ]
-                })
-                    .overrideTemplate(PasswordComponent, '')
-                    .compileComponents();
+        beforeEach(async(() => {
+            TestBed.configureTestingModule({
+                imports: [GatewayTestModule],
+                declarations: [PasswordComponent],
+                providers: []
             })
-        );
+                .overrideTemplate(PasswordComponent, '')
+                .compileComponents();
+        }));
 
         beforeEach(() => {
             fixture = TestBed.createComponent(PasswordComponent);

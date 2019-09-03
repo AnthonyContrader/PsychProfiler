@@ -1,40 +1,35 @@
 {
-  "generator-jhipster": {
-    "promptValues": {
-      "packageName": "com.psychprofiler.contrader",
-      "nativeLanguage": "it"
-    },
-    "jhipsterVersion": "5.2.1",
-    "applicationType": "gateway",
-    "baseName": "gateway",
-    "packageName": "com.psychprofiler.contrader",
-    "packageFolder": "com/psychprofiler/contrader",
-    "serverPort": "8080",
-    "authenticationType": "jwt",
-    "cacheProvider": "hazelcast",
-    "enableHibernateCache": false,
-    "websocket": "spring-websocket",
-    "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
-    "prodDatabaseType": "mysql",
-    "searchEngine": false,
-    "messageBroker": false,
-    "serviceDiscoveryType": "consul",
-    "buildTool": "maven",
-    "enableSwaggerCodegen": false,
-    "jwtSecretKey": "d3705b4e85915287fb18913e421bf1dbc7a0ae44",
-    "clientFramework": "angularX",
-    "useSass": true,
-    "clientPackageManager": "npm",
-    "testFrameworks": [
-      "protractor"
-    ],
-    "jhiPrefix": "jhi",
-    "enableTranslation": true,
-    "nativeLanguage": "it",
-    "languages": [
-      "it",
-      "en"
-    ]
-  }
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.contrader.psychprofiler"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "gateway",
+        "baseName": "gateway",
+        "packageName": "com.contrader.psychprofiler",
+        "packageFolder": "com/contrader/psychprofiler",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "hazelcast",
+        "enableHibernateCache": false,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "h2Disk",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": "consul",
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "OTc0YmM3ZWNkMjMyYzdkNGE4ZWE3YzBjNDQ1MTY5MWRkZDA4NWI5ZDkzNGNkNWU2YzM0MTNmZmU4N2VjMDI5OTJlZWIzNmEwOGRmMTlmNWY4YTNiNjI1NDA2NTNiZWM2NDUyNmIwNDVjNGZjZTQxYjNiZmQ1NjVlZDExZTJiMjI=",
+        "clientFramework": "angularX",
+        "useSass": false,
+        "clientPackageManager": "npm",
+        "testFrameworks": ["gatling"],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
 }

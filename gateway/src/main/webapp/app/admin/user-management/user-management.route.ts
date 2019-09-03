@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, CanActivate } from '@angular/router';
 import { JhiPaginationUtil, JhiResolvePagingParams } from 'ng-jhipster';
 
-import { Principal, User, UserService } from 'app/core';
+import { AccountService, User, UserService } from 'app/core';
 import { UserMgmtComponent } from './user-management.component';
 import { UserMgmtDetailComponent } from './user-management-detail.component';
 import { UserMgmtUpdateComponent } from './user-management-update.component';
 
 @Injectable({ providedIn: 'root' })
 export class UserResolve implements CanActivate {
-    constructor(private principal: Principal) {}
+    constructor(private accountService: AccountService) {}
 
     canActivate() {
-        return this.principal.identity().then(account => this.principal.hasAnyAuthority(['ROLE_ADMIN']));
+        return this.accountService.identity().then(account => this.accountService.hasAnyAuthority(['ROLE_ADMIN']));
     }
 }
 
@@ -37,7 +37,7 @@ export const userMgmtRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            pageTitle: 'userManagement.home.title',
+            pageTitle: 'Users',
             defaultSort: 'id,asc'
         }
     },
@@ -48,7 +48,7 @@ export const userMgmtRoute: Routes = [
             user: UserMgmtResolve
         },
         data: {
-            pageTitle: 'userManagement.home.title'
+            pageTitle: 'Users'
         }
     },
     {

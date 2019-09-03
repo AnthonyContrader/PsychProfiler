@@ -17,19 +17,24 @@ logging:
     level:
         ROOT: DEBUG
         io.github.jhipster: DEBUG
-        com.psychprofiler.contrader: DEBUG
+        com.contrader.psychprofiler: DEBUG
 
 spring:
     profiles:
         active: dev
-        include: swagger
+        include:
+            - swagger
+            # Uncomment to activate TLS for the dev profile
+            #- tls
     devtools:
         restart:
             enabled: true
+            additional-exclude: .h2.server.properties
         livereload:
             enabled: false # we use Webpack dev server + BrowserSync for livereload
     jackson:
-        serialization.indent_output: true
+        serialization:
+            indent-output: true
     cloud:
         consul:
             discovery:
@@ -41,6 +46,9 @@ spring:
         url: jdbc:h2:file:./target/h2db/db/gateway;DB_CLOSE_DELAY=-1
         username: gateway
         password:
+        hikari:
+            poolName: Hikari
+            auto-commit: false
     h2:
         console:
             enabled: false
@@ -50,6 +58,7 @@ spring:
         show-sql: true
         properties:
             hibernate.id.new_generator_mappings: true
+            hibernate.connection.provider_disables_autocommit: true
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
@@ -64,6 +73,9 @@ spring:
         cache-duration: PT1S # 1 second, see the ISO 8601 standard
     thymeleaf:
         cache: false
+    sleuth:
+        sampler:
+            probability: 1 # report 100% of traces
     zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
         base-url: http://localhost:9411
         enabled: false
@@ -71,23 +83,6 @@ spring:
             discovery:
                 enabled: true
 
-# ===================================================================
-# To enable SSL, generate a certificate using:
-# keytool -genkey -alias gateway -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
-#
-# You can also use Let's Encrypt:
-# https://maximilian-boehm.com/hp2121/Create-a-Java-Keystore-JKS-from-Let-s-Encrypt-Certificates.htm
-#
-# Then, modify the server.ssl properties so your "server" configuration looks like:
-#
-# server:
-#    port: 8443
-#    ssl:
-#        key-store: keystore.p12
-#        key-store-password: <your-password>
-#        key-store-type: PKCS12
-#        key-alias: gateway
-# ===================================================================
 server:
     port: 8080
 
@@ -106,7 +101,7 @@ jhipster:
         authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
             app1: /api,/v2/api-docs # recommended dev configuration
     http:
-        version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
+        version: V_1_1 # To use HTTP/2 you will need to activate TLS (see application-tls.yml)
     cache: # Cache configuration
         hazelcast: # Hazelcast distributed cache
             time-to-live-seconds: 3600
@@ -126,17 +121,16 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: my-secret-token-to-change-in-production
+                # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+                base64-secret: OTc0YmM3ZWNkMjMyYzdkNGE4ZWE3YzBjNDQ1MTY5MWRkZDA4NWI5ZDkzNGNkNWU2YzM0MTNmZmU4N2VjMDI5OTJlZWIzNmEwOGRmMTlmNWY4YTNiNjI1NDA2NTNiZWM2NDUyNmIwNDVjNGZjZTQxYjNiZmQ1NjVlZDExZTJiMjI=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: gateway@localhost
         base-url: http://127.0.0.1:8080
-    metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
-        jmx:
-            enabled: true
-        logs: # Reports Dropwizard metrics in the logs
+    metrics:
+        logs: # Reports metrics in the logs
             enabled: false
             report-frequency: 60 # in seconds
     logging:

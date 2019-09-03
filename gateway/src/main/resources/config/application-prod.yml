@@ -16,7 +16,7 @@
 logging:
     level:
         ROOT: INFO
-        com.psychprofiler.contrader: INFO
+        com.contrader.psychprofiler: INFO
         io.github.jhipster: INFO
 
 spring:
@@ -33,10 +33,12 @@ spring:
             port: 8500
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/gateway?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://localhost:3306/gateway?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
         username: root
         password:
         hikari:
+            poolName: Hikari
+            auto-commit: false
             data-source-properties:
                 cachePrepStmts: true
                 prepStmtCacheSize: 250
@@ -48,9 +50,10 @@ spring:
         show-sql: false
         properties:
             hibernate.id.new_generator_mappings: true
+            hibernate.connection.provider_disables_autocommit: true
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
-            hibernate.generate_statistics: false
+            hibernate.generate_statistics: true
     liquibase:
         contexts: prod
     mail:
@@ -60,6 +63,9 @@ spring:
         password:
     thymeleaf:
         cache: true
+    sleuth:
+        sampler:
+            probability: 1 # report 100% of traces
     zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
         base-url: http://localhost:9411
         enabled: false
@@ -68,7 +74,7 @@ spring:
                 enabled: true
 
 # ===================================================================
-# To enable SSL, generate a certificate using:
+# To enable TLS in production, generate a certificate using:
 # keytool -genkey -alias gateway -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 #
 # You can also use Let's Encrypt:
@@ -79,8 +85,8 @@ spring:
 # server:
 #    port: 443
 #    ssl:
-#        key-store: keystore.p12
-#        key-store-password: <your-password>
+#        key-store: classpath:config/tls/keystore.p12
+#        key-store-password: password
 #        key-store-type: PKCS12
 #        key-alias: gateway
 #        # The ciphers suite enforce the security by deactivating some old and deprecated SSL cipher, this list was tested against SSL Labs (https://www.ssllabs.com/ssltest/)
@@ -120,17 +126,20 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: d3705b4e85915287fb18913e421bf1dbc7a0ae44
+                # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+                # As this is the PRODUCTION configuration, you MUST change the default key, and store it securely:
+                # - In the JHipster Registry (which includes a Spring Cloud Config server)
+                # - In a separate `application-prod.yml` file, in the same folder as your executable WAR file
+                # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
+                base64-secret: OTc0YmM3ZWNkMjMyYzdkNGE4ZWE3YzBjNDQ1MTY5MWRkZDA4NWI5ZDkzNGNkNWU2YzM0MTNmZmU4N2VjMDI5OTJlZWIzNmEwOGRmMTlmNWY4YTNiNjI1NDA2NTNiZWM2NDUyNmIwNDVjNGZjZTQxYjNiZmQ1NjVlZDExZTJiMjI=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: gateway@localhost
         base-url: http://my-server-url-to-change # Modify according to your server's URL
-    metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
-        jmx:
-            enabled: true
-        logs: # Reports Dropwizard metrics in the logs
+    metrics:
+        logs: # Reports metrics in the logs
             enabled: false
             report-frequency: 60 # in seconds
     logging:
