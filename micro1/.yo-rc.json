@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.contrader.psychprofiler",
+      "nativeLanguage": "it"
+    },
+    "jhipsterVersion": "6.2.0",
+    "applicationType": "microservice",
+    "baseName": "micro1",
+    "packageName": "com.contrader.psychprofiler",
+    "packageFolder": "com/contrader/psychprofiler",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "consul",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "N2M4NjUxYjFhNDM3ZGE5ZDdjMDQ0Y2ZkODU5NmZmYWI4NGU5NDQzMDhmYTUxMDIwMjZmZTEwNzlmY2I3OTc5NTJmOGM2OGJlZjkzZmNlNmZkZDdmNzk2ZGFhNTU4MTkzZTY0MmJkZTcwOTM4ZDJjM2Y3M2RkMGQ0NmI4MDk0YWQ=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "it",
+    "languages": [
+      "it"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
