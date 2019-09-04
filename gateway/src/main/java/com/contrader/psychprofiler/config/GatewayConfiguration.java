@@ -2,10 +2,9 @@ package com.contrader.psychprofiler.config;
 
 import io.github.jhipster.config.JHipsterProperties;
 
-import com.contrader.psychprofiler.gateway.ratelimiting.RateLimitingFilter;
 import com.contrader.psychprofiler.gateway.accesscontrol.AccessControlFilter;
 import com.contrader.psychprofiler.gateway.responserewriting.SwaggerBasePathRewritingFilter;
-
+import com.contrader.psychprofiler.gateway.ratelimiting.RateLimitingFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.context.annotation.Bean;
@@ -46,7 +45,6 @@ public class GatewayConfiguration {
         public RateLimitingConfiguration(JHipsterProperties jHipsterProperties) {
             this.jHipsterProperties = jHipsterProperties;
         }
-
         @Bean
         public RateLimitingFilter rateLimitingFilter() {
             return new RateLimitingFilter(jHipsterProperties);
