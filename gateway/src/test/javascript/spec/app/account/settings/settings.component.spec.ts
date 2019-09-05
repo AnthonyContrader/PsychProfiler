@@ -5,8 +5,6 @@ import { Observable, throwError } from 'rxjs';
 import { GatewayTestModule } from '../../../test.module';
 import { AccountService, Account } from 'app/core';
 import { SettingsComponent } from 'app/account/settings/settings.component';
-import { JhiTrackerService } from 'app/core/tracker/tracker.service';
-import { MockTrackerService } from '../../../helpers/mock-tracker.service';
 
 describe('Component Tests', () => {
   describe('SettingsComponent', () => {
@@ -18,13 +16,7 @@ describe('Component Tests', () => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
         declarations: [SettingsComponent],
-        providers: [
-          FormBuilder,
-          {
-            provide: JhiTrackerService,
-            useClass: MockTrackerService
-          }
-        ]
+        providers: [FormBuilder]
       })
         .overrideTemplate(SettingsComponent, '')
         .compileComponents();

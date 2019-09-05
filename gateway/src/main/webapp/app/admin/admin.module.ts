@@ -18,8 +18,7 @@ import {
   JhiHealthCheckComponent,
   JhiConfigurationComponent,
   JhiDocsComponent,
-  JhiGatewayComponent,
-  JhiTrackerComponent
+  JhiGatewayComponent
 } from './';
 
 @NgModule({
@@ -40,7 +39,6 @@ import {
     JhiHealthModalComponent,
     JhiDocsComponent,
     JhiGatewayComponent,
-    JhiTrackerComponent,
     JhiMetricsMonitoringComponent
   ],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],

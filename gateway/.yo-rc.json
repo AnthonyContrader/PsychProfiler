@@ -2,8 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.contrader.psychprofiler",
-      "nativeLanguage": "it",
-      "microservicePath": "C:\\Users\\Contrader_19_207\\Documents\\psychprofiler-microservices\\micro1"
+      "nativeLanguage": "it"
     },
     "jhipsterVersion": "6.2.0",
     "applicationType": "gateway",
@@ -14,7 +13,7 @@
     "authenticationType": "jwt",
     "cacheProvider": "hazelcast",
     "enableHibernateCache": false,
-    "websocket": "spring-websocket",
+    "websocket": false,
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
     "prodDatabaseType": "mysql",
@@ -23,13 +22,13 @@
     "serviceDiscoveryType": "consul",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "Y2U5OGQ1MTJiNWIwNzJlZDk4YzhkMDBmOWQ3OGUwOGMwZDI4NWM3YjRhY2Y3YWY1YzMyM2MyMzJmMDY5OWIwNTFmMjlkNTc1NThiNmJiNTc5MTY1NGU1NGIwMmExMmQ3NzQ3YWQ5ODViYjM1NTA5ZjUzNjI0ODA0Y2JlNmE2OTQ=",
+    "jwtSecretKey": "YWFjMzAyZWQ5ZDk4MDIxOTVhZTQ1MDVhZDhlNTJmMTBhNDk1OTdkYzk5Njc1MjQyMDQ2NjcyYjRlM2ZlNWMzZjZmNzUzMjc0ZmY2ZWMxMWE5OTYzZWIzODliMDRlZTU3YzQ0NWQ0ZTIxMWM5ZTRlZTNjZDA3NDQ1MzM1MjAyNjM=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "testFrameworks": [],
+    "testFrameworks": ["protractor"],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
