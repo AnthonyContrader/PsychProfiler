@@ -22,7 +22,7 @@
     "serviceDiscoveryType": "consul",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "YzNkYzBkNjIxMWYyZmExZjY4YzhjMTg0NDNmNzQwOWFiM2E4NjU3NjY5YmQ1NDRiNzIwYTU2ZWYyMzBiNzg4MzNhYzk5NTdkNjEzNDlkNTZhMjY1MjEzZWMzZTk5MGRjZWYxMDk0MjY5N2MxMGI0YjFhNmJiMTAyNmJlNTBjODk=",
+    "jwtSecretKey": "MWJlNjg1NDgwYWZmNGQwOWE0YWEwMzczZTg4MDFlZDJlNGJmMTI2NTFkMWE5ZjcxN2QwMWJhMDE3MzYxOTExNDdiNzc3MDZkNDZiOWVjYTIwMWI3M2NjZTk3NzRmNjA2MWZkMTAzMWFlOTU2OWFkYzAyYWYxZDVjNjJmZGY2Yzg=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
