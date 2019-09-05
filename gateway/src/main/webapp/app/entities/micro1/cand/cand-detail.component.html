@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cand">
+            <h2><span jhiTranslate="gatewayApp.micro1Cand.detail.title">Cand</span> {{cand.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.micro1Cand.name">Name</span></dt>
+                <dd>
+                    <span>{{cand.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro1Cand.surname">Surname</span></dt>
+                <dd>
+                    <span>{{cand.surname}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro1Cand.age">Age</span></dt>
+                <dd>
+                    <span>{{cand.age}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro1Cand.experience">Experience</span></dt>
+                <dd>
+                    <span>{{cand.experience}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro1Cand.username">Username</span></dt>
+                <dd>
+                    <span>{{cand.username}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cand', cand.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

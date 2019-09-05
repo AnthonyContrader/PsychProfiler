@@ -2,7 +2,8 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.contrader.psychprofiler",
-      "nativeLanguage": "it"
+      "nativeLanguage": "it",
+      "microservicePath": "C:\\Users\\Contrader_19_207\\Documents\\psychprofiler-microservices\\micro1"
     },
     "jhipsterVersion": "6.2.0",
     "applicationType": "gateway",
