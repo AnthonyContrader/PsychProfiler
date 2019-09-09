@@ -13,6 +13,7 @@ export class QuestService extends AbstractService<QuestDTO>{
   constructor(http: HttpClient) {
     super(http);
     this.type = 'quest';
+    this.micro= 'micro2';
   }
 
   create(arg: string, num: number) : Observable<QuestDTO[]>{

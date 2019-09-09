@@ -13,6 +13,7 @@ export class AnswerService extends AbstractService<AnswerDTO>{
   constructor(http: HttpClient) {
     super(http);
     this.type = 'answer';
+    this.micro = 'micro2';
   }
 
 }

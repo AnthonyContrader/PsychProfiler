@@ -13,6 +13,7 @@ export class CreatetestService extends AbstractService<QuestDTO>{
   constructor(http: HttpClient) {
     super(http);
     this.type = 'createst';
+    this.micro= 'micro2';
   }
 
 }

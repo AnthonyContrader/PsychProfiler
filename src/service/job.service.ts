@@ -13,6 +13,7 @@ export class JobService extends AbstractService<JobDTO>{
   constructor(http: HttpClient) {
     super(http);
     this.type = 'job';
+    this.micro= 'micro1';
   }
 
 }

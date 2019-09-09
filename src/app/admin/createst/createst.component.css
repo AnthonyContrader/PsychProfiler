@@ -2,7 +2,7 @@
     text-align: center;
 }
 /*Tables*/
-table {
+form {
 	border-collapse: collapse;
 	width: 100%;
 	float: left;
@@ -10,13 +10,15 @@ table {
 	-moz-border-radius: 4px;
 }
 
-th, td {
+p{
 	text-align: center;
 	padding: 2px;
+	color: blue;
+	font-size: 16px;
 }
 
-td{
-    font-size: 16px;
+input{
+    size: 16px;
 }
 
 

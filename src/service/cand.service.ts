@@ -22,6 +22,7 @@ export class CandService extends AbstractService<CandDTO>{
   constructor(http: HttpClient) {
     super(http);
     this.type = 'cand';
+    this.micro= 'micro1'
   }
   getAllUser(user: UserDTO): Observable<CandDTO[]>{
    
