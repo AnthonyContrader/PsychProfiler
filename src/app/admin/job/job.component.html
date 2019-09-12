@@ -7,7 +7,7 @@
         <table>
           <tr>
             <th>
-              Name
+              Role
             </th>
             <th>
               Description
@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <td>
-              <input placeholder="name" [(ngModel)]="jobtoinsert.name">
+              <input placeholder="name" [(ngModel)]="jobtoinsert.role">
             </td>
             <td>
               <input placeholder="description" [(ngModel)]="jobtoinsert.description">
@@ -35,7 +35,7 @@
           </tr>
           <tr *ngFor="let job of jobs">
             <td>
-              <input [(ngModel)]="job.name">
+              <input [(ngModel)]="job.role">
             </td>
             <td>
               <input [(ngModel)]="job.description">

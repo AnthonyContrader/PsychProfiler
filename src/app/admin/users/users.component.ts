@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/service/user.service';
 import { UserDTO } from 'src/dto/userdto';
+import { RegisterDTO } from 'src/dto/registerdto';
 
 @Component({
   selector: 'app-users',

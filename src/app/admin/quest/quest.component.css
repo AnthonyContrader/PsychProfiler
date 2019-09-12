@@ -5,8 +5,8 @@
 /*Tables*/
 table {
 	border-collapse: collapse;
-	width: 80%;
-	float: left;
+	width: 50%;
+	float: right;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 }

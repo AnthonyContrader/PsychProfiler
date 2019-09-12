@@ -25,12 +25,12 @@
               <tr>
                 <td>
                         <select  [(ngModel)]="answertoinsert.cand">
-                                <option [ngValue]="cand" *ngFor="let cand of cands">{{cand.name}}</option>
+                                <option [ngValue]="cand.name" *ngFor="let cand of cands">{{cand.name}}</option>
                               </select>
                 </td>
                 <td>
-                      <select  [(ngModel)]="answertoinsert.quest">
-                        <option [ngValue]="quest" *ngFor="let quest of quests">{{quest.quest}}</option>
+                      <select  [(ngModel)]="answertoinsert.answer_questId">
+                        <option [ngValue]="quest.id" *ngFor="let quest of quests">{{quest.quest}}</option>
                      </select>
                 </td>
                 <td>
@@ -46,10 +46,9 @@
               </tr>
               <tr *ngFor="let answer of answers">
                 <td>
-                  {{answer.cand.name}}
+                 {{answer.cand}}
                 </td>
                 <td>
-                  {{answer.quest.quest}}
                 </td>
                 <td>
                  <input [(ngModel)]="answer.ans">

@@ -10,7 +10,7 @@ export class JobDTO {
 
     id: number;
  
-    name: string;
+    role: string;
  
     description: string;
   

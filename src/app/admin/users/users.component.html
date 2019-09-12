@@ -10,7 +10,7 @@
             Username
           </th>
           <th>
-            Password
+            Email
           </th>
           <th>
             Usertype
@@ -24,15 +24,15 @@
         </tr>
         <tr>
           <td>
-            <input placeholder="username" [(ngModel)]="usertoinsert.username">
+            <input placeholder="username" [(ngModel)]="usertoinsert.login">
+          </td>
+         <td>
+            <input placeholder="email" [(ngModel)]="usertoinsert.email">
           </td>
           <td>
-            <input placeholder="password" [(ngModel)]="usertoinsert.password">
-          </td>
-          <td>
-            <select placeholder="usertype" [(ngModel)]="usertoinsert.usertype">
-              <option value="ADMIN">ADMIN</option>
-              <option value="USER">USER</option>
+            <select placeholder="usertype" [(ngModel)]="usertoinsert.authorities[0]">
+              <option value="ROLE_ADMIN">ADMIN</option>
+              <option value="ROLE_USER">USER</option>
             </select>
           </td>
           <td>
@@ -47,12 +47,12 @@
             <input [(ngModel)]="user.login">
           </td>
           <td>
-            <input [(ngModel)]="user.password">
+            <input [(ngModel)]="user.email">
           </td>
           <td>
-            <select [(ngModel)]="user.authorities">
-              <option [selected]="user.authorities===ROLE_ADMIN" value="ROLE_ADMIN">ADMIN</option>
-              <option [selected]="user.authorities===ROLE_USER " value="ROLE_USER">USER</option>
+            <select [(ngModel)]="user.authorities[0]">
+              <option  value="ROLE_ADMIN" >ADMIN</option>
+              <option  value="ROLE_USER">USER</option>
             </select>
           </td>
           <td>

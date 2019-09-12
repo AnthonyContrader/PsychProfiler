@@ -4,6 +4,7 @@ import { Observable, of, } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { UserDTO } from 'src/dto/userdto';
 import { LoginDTO } from 'src/dto/logindto';
+import {RegisterDTO} from 'src/dto/registerdto';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,7 @@ import { LoginDTO } from 'src/dto/logindto';
 
 export class LoginService{
     user: UserDTO;
+    
     constructor(private http: HttpClient){}
 
     private handleError<T>(operation = 'operation', result?: T){
@@ -31,6 +33,9 @@ export class LoginService{
             return'';
         }
 
+    }
+    register(registerdto: RegisterDTO){
+        return this.http.post('http://localhost:8080/api/register',registerdto);
     }
     login(logindto: LoginDTO){
     return this.http.post('http://localhost:8080/api/authenticate', logindto);

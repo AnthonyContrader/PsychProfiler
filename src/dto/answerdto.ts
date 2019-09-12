@@ -5,9 +5,9 @@ export class AnswerDTO{
 
     id: number;
 
-    cand: CandDTO;
+    cand: string;  
+    //answer_questQuest: string;
+    answer_questId: number;  
+    ans: number;
     
-    quest: QuestDTO;
-    
-	ans: number;
 }

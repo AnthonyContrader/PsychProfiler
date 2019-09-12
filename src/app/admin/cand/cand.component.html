@@ -43,7 +43,7 @@
             </td>
             <td>
               <select  [(ngModel)]="candtoinsert.user">
-                <option [ngValue]="user" *ngFor="let user of users">{{user.username}}</option>
+                <option [ngValue]="user.login" *ngFor="let user of users">{{user.login}}</option>
               </select>
             </td>
             <td>
@@ -67,7 +67,7 @@
                 <input [(ngModel)]="cand.experience">
               </td>
             <td>
-                {{cand.user.username}}
+                {{cand.user}}
             </td>
             <td>
               <button (click)=update(cand)>Save</button>

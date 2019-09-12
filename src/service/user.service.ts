@@ -22,6 +22,7 @@ export class UserService extends AbstractService<UserDTO>{
   constructor( http: HttpClient) {
     super(http);
     this.type = 'user';
+    this.port='8080';
     
    }
 
@@ -55,11 +56,11 @@ delete(id: number): Observable<any> {
 }
 
 insert(dto: UserDTO): Observable<any> {
-    return this.http.post('http://localhost:'+ this.port +'/api/'+ this.type + 's', dto, {
-        headers: {
-            Authorization: this.auth()
-        }
-      });
+  return this.http.post('http://localhost:'+ this.port +'/api/'+ this.type + 's', dto, {
+      headers: {
+          Authorization: this.auth()
+      }
+    });
 }
 
 update(dto: UserDTO): Observable<UserDTO> {

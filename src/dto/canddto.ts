@@ -21,7 +21,7 @@ export class CandDTO {
 
    experience: string;
 
-   user : UserDTO;
+   user : string;
    
 
 }

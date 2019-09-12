@@ -5,6 +5,7 @@ import { UserService } from 'src/service/user.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/service/login.service';
 import { UserDTO } from 'src/dto/userdto';
+import { RegisterDTO } from 'src/dto/registerdto';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ import { UserDTO } from 'src/dto/userdto';
 export class LoginComponent implements OnInit {
 
   loginDTO: LoginDTO;
+  registerDTO: RegisterDTO;
 
   state = 'default';
   logstate = 'default';
@@ -51,5 +53,9 @@ export class LoginComponent implements OnInit {
         }
       });
     });
+  }
+  register(r: NgForm): void{
+    this.registerDTO = new RegisterDTO (r.value.email, r.value.login, r.value.password);
+    this.service.register(this.registerDTO).subscribe();
   }
 }

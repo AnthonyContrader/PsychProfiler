@@ -8,16 +8,17 @@
  * @author Vittorio Valent
  */
 export class UserDTO {
-
    id: number;
+   activated: true;  
+  email: string;
+  firstName: string;
+  imageUrl: null;
+  langKey: null;
+  lastName: null;
+  login: string;
+  resetDate: string;
 
-   login: string;
-
-   password: string;
-
-
-   authorities: Array<string>;
-
+  authorities: string[]=[""];
 
 }
 
