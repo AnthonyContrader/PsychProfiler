@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Argomenti
+            </th>
+            <th>
+              Domande
+            </th>
+            <th>
+                Risposta 1
+              </th>
+              <th>
+                Risposta 2
+              </th>
+              <th>
+                Risposta 3
+              </th>
+              <th>
+                Risposta 4
+              </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Job
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="args" [(ngModel)]="questtoinsert.args">
+            </td>
+            <td>
+              <input placeholder="quest" [(ngModel)]="questtoinsert.quest">
+            </td>
+            <td>
+                <input placeholder="ans1" [(ngModel)]="questtoinsert.ans1">
+              </td>
+              <td>
+                <input placeholder="ans2" [(ngModel)]="questtoinsert.ans2">
+              </td>
+              <td>
+                <input placeholder="ans3" [(ngModel)]="questtoinsert.ans3">
+              </td>
+              <td>
+                <input placeholder="ans4" [(ngModel)]="questtoinsert.ans4">
+              </td>
+            <td>
+              <button (click)="insert(questtoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let quest of quests">
+            <td>
+              <input [(ngModel)]="quest.args">
+            </td>
+            <td>
+              <input [(ngModel)]="quest.quest">
+            </td>
+            <td>
+                <input [(ngModel)]="quest.ans1">
+              </td>
+              <td>
+                <input [(ngModel)]="quest.ans2">
+              </td>
+              <td>
+                <input [(ngModel)]="quest.ans3">
+              </td>
+              <td>
+                <input [(ngModel)]="quest.ans4">
+              </td>
+            <td>
+              <button (click)=update(quest)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(quest)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

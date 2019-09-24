@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+          <!--<table>
+              <th>
+              <tr>
+                <td>
+                  Inserisci l'argomento del test
+                </td>
+                <td>
+                 
+                    <select  name="arg">
+                                <option [ngValue]="quest" *ngFor="let test of tests">{{test.args}}</option>
+                             </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Quande Domande vorresti Inserire?
+                </td>
+                <td>
+                    <input name="nquest"  type="number" min="10" max="30">
+                </td>
+              </tr>
+              <tr> <button create()>Crea Test</button></tr>
+              </th>
+                 </table>-->
+                 <form #t="ngForm">
+
+                   <p >Inserisci l'argomento del test:&nbsp;&nbsp;&nbsp; </p>
+                   
+                    <select  name="arg" ngModel >
+                        <option >psych</option>
+                        <option >interr</option>
+                     </select><br>
+            
+                     <p>Inserisci il numero di domande:&nbsp;&nbsp;&nbsp; </p>
+
+                        <input name="nquest" type="number" min="1" max="30"ngModel>
+                    <!--!
+                    <p>Inserisci il candidato al quale sottoporre le domande:&nbsp;&nbsp;&nbsp;</p>
+                        <select  name="getcands" ngModel>
+                            <option [ngValue]="cand.name" *ngFor="let cand of cand">{{cand.name}}</option>
+                        </select>-->
+
+                     <button type= "submit" (click)='create(t)'>Submit</button>
+
+                  </form>   
+          <div *ngFor="let test of ctests">
+              {{test.quest}}
+            </div>
+      </div>
+      <div class="col-md-10">
+      </div>
+    </div>
+  </div>

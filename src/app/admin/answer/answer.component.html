@@ -1,0 +1,70 @@
+<div class="container">
+        <div class="row mt-5">
+          <div class="col-md-1">
+      
+          </div>
+          <div class="col-md-10">
+            <table>
+              <tr>
+                <th>
+                  Cand
+                </th>
+                <th>
+                  Quest
+                </th>
+                <th>
+                  Risposta
+                </th>
+                <th>
+                  Edit
+                </th>
+                <th>
+                  Risposta
+                </th>
+              </tr>
+              <tr>
+                <td>
+                        <select  [(ngModel)]="answertoinsert.cand">
+                                <option [ngValue]="cand.name" *ngFor="let cand of cands">{{cand.name}}</option>
+                              </select>
+                </td>
+                <td>
+                      <select  [(ngModel)]="answertoinsert.answer_questId">
+                        <option [ngValue]="quest.id" *ngFor="let quest of quests">{{quest.quest}}</option>
+                     </select>
+                </td>
+                <td>
+                    <input  type="number" min="1" max="4" placeholder="ans" [(ngModel)]="answertoinsert.ans">
+                  </td>
+               
+                <td>
+                  <button (click)="insert(answertoinsert)">Insert</button>
+                </td>
+                <td>
+                  <button (click)="clear()">Clear</button>
+                </td>
+              </tr>
+              <tr *ngFor="let answer of answers" >
+                <td>
+                 {{answer.cand}}
+                </td>
+                <td>
+                  {{answer.answer_questQuest}}
+                </td>
+                <td>
+                 {{answer.ans}}
+                </td>
+                <td>
+                  <button (click)=update(answer)>Save</button>
+                </td>
+                <td>
+                  <button (click)="delete(answer)">Delete</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-1">
+      
+          </div>
+        </div>
+      </div>

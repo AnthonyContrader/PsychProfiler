@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7">
+      <img src="../../assets/logo.svg" alt="logo">
+    </div>
+    <div class="col-md-5">
+      <form #f="ngForm">
+        <p>Please insert username and password to Login or Sign Up</p>
+        <div class="form-group">
+          <input class="form-control" type="text" id="user" name="username" placeholder="Username" ngModel>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="password" id="pass" name="password" placeholder="Password" ngModel>
+        </div>
+        <button type="submit" (click)="login(f)">Login</button>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+<div>
+<div>
+<div>
+    <div class="col-md-5">
+      <form #r="ngForm">
+        <p>Please insert username and password to Login or Sign Up</p>
+        <div class="form-group">
+          <input class="form-control" type="text" id="email" name="email" placeholder="email" ngModel>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" id="login" name="login" placeholder="username" ngModel>
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="password" id="pass" name="password" placeholder="Password" ngModel>
+        </div>
+  
+        <button type="submit" (click)="register(r)">registrati</button>
+
+      </form>
+    </div>
+  </div>
+</div>
