@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.contrader.app",
+      "nativeLanguage": "it"
+    },
+    "jhipsterVersion": "6.2.0",
+    "applicationType": "microservice",
+    "baseName": "micro2",
+    "packageName": "com.contrader.app",
+    "packageFolder": "com/contrader/app",
+    "serverPort": "8082",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "consul",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NmI4N2JhMGE1Y2Q4OTU1MzY4ZDVjNGI3ZWNkOTY4NjMwMDYzMWE5ZDY1ZjQ1ZDgyM2M5YzgzNThiMDRjZmIzNmU3ZjM3MzdmY2YzZGJhMWFiYTc2OWNiNGM2MTI5YjQwMjdhMWU1ZTljMDUwYWY5MDg0NGFmZjA0NmQ0NWU2ZWE=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "it",
+    "languages": [
+      "it"
+    ],
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

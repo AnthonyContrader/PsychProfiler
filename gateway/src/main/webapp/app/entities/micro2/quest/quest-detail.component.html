@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="quest">
+            <h2><span jhiTranslate="gatewayApp.micro2Quest.detail.title">Quest</span> {{quest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.micro2Quest.args">Args</span></dt>
+                <dd>
+                    <span>{{quest.args}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Quest.quest">Quest</span></dt>
+                <dd>
+                    <span>{{quest.quest}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Quest.ans1">Ans 1</span></dt>
+                <dd>
+                    <span>{{quest.ans1}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Quest.ans2">Ans 2</span></dt>
+                <dd>
+                    <span>{{quest.ans2}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Quest.ans3">Ans 3</span></dt>
+                <dd>
+                    <span>{{quest.ans3}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Quest.ans4">Ans 4</span></dt>
+                <dd>
+                    <span>{{quest.ans4}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/quest', quest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

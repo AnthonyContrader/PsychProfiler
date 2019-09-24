@@ -1,17 +1,18 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.contrader.psychprofiler",
-      "nativeLanguage": "it"
+      "packageName": "com.contrader.app",
+      "nativeLanguage": "it",
+      "microservicePath": "C:\\Users\\Contrader_19_207\\Documents\\psychprofiler-microservices\\micro2"
     },
     "jhipsterVersion": "6.2.0",
     "applicationType": "gateway",
     "baseName": "gateway",
-    "packageName": "com.contrader.psychprofiler",
-    "packageFolder": "com/contrader/psychprofiler",
+    "packageName": "com.contrader.app",
+    "packageFolder": "com/contrader/app",
     "serverPort": "8080",
     "authenticationType": "jwt",
-    "cacheProvider": "ehcache",
+    "cacheProvider": "hazelcast",
     "enableHibernateCache": false,
     "websocket": "spring-websocket",
     "databaseType": "sql",
@@ -22,20 +23,25 @@
     "serviceDiscoveryType": "consul",
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "MDc0MTZmZGE5YTI0ZTVjZjY3ZmI4Mzk0Mzc4ZTE0NGMwMzI5NjMzZDRlOTQxMTg4MGU3NTk5NDkyNGE2YzBkMzM1NDkxNjI1ZjBmNDVlYWRlZDBlYjViMmZmN2U1MzJkNDIzMGQxMjhlMTgwZWVhNjk0NTVmYmJjZWQ4YmY5Yzc=",
+    "jwtSecretKey": "NWM1ZTNjOWVmYTNjZTUyOGY5Yjk3OTk3ZTliNmRmOTNmNzMzOGIyZmE0Yzg3MGIzNjJkODUzZTdiOTEzMWRiYjdhOTI0YWE3YTlkOWVlMzc5ZWMxZThiZjFjM2E4MDhiYmQwN2RhNDRlNzhmYjlkNWU2OWNlMmM5MDhhZTcwYzg=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "testFrameworks": [],
+    "testFrameworks": [
+      "protractor"
+    ],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "it",
-    "languages": ["it"],
+    "languages": [
+      "it",
+      "en"
+    ],
     "blueprints": []
   }
 }

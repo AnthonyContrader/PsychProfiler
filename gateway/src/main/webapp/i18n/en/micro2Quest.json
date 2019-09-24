@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "micro2Quest": {
+      "home": {
+        "title": "Quests",
+        "createLabel": "Create a new Quest",
+        "createOrEditLabel": "Create or edit a Quest",
+        "notFound": "No Quests found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Quest {{ id }}?"
+      },
+      "detail": {
+        "title": "Quest"
+      },
+      "args": "Args",
+      "quest": "Quest",
+      "ans1": "Ans 1",
+      "ans2": "Ans 2",
+      "ans3": "Ans 3",
+      "ans4": "Ans 4"
+    }
+  },
+  "micro2App": {
+    "micro2Quest": {
+      "created": "A new Quest is created with identifier {{ param }}",
+      "updated": "A Quest is updated with identifier {{ param }}",
+      "deleted": "A Quest is deleted with identifier {{ param }}"
+    }
+  }
+}

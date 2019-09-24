@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="answer">
+            <h2><span jhiTranslate="gatewayApp.micro2Answer.detail.title">Answer</span> {{answer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.micro2Answer.cand">Cand</span></dt>
+                <dd>
+                    <span>{{answer.cand}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Answer.ans">Ans</span></dt>
+                <dd>
+                    <span>{{answer.ans}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.micro2Answer.answer_quest">Answer Quest</span></dt>
+                <dd>
+                    <div *ngIf="answer.answer_questId">
+                        <a [routerLink]="['/quest', answer.answer_questId, 'view']">{{answer.answer_questQuest}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/answer', answer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

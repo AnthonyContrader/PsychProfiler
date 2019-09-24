@@ -16,7 +16,7 @@
 logging:
   level:
     ROOT: INFO
-    com.contrader.psychprofiler: INFO
+    com.contrader.app: INFO
     io.github.jhipster: INFO
 
 management:
@@ -113,13 +113,22 @@ server:
 # ===================================================================
 
 jhipster:
+  gateway:
+    rate-limiting:
+      enabled: false
+    authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
+      app1: /api # recommended prod configuration
   http:
     cache: # Used by the CachingHttpHeadersFilter
       timeToLiveInDays: 1461
   cache: # Cache configuration
-    ehcache: # Ehcache configuration
-      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
-      max-entries: 1000 # Number of objects in each cache entry
+    hazelcast: # Hazelcast distributed cache
+      time-to-live-seconds: 3600
+      backup-count: 1
+      management-center: # Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+        enabled: false
+        update-interval: 3
+        url:
   security:
     authentication:
       jwt:
@@ -128,7 +137,7 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: MDc0MTZmZGE5YTI0ZTVjZjY3ZmI4Mzk0Mzc4ZTE0NGMwMzI5NjMzZDRlOTQxMTg4MGU3NTk5NDkyNGE2YzBkMzM1NDkxNjI1ZjBmNDVlYWRlZDBlYjViMmZmN2U1MzJkNDIzMGQxMjhlMTgwZWVhNjk0NTVmYmJjZWQ4YmY5Yzc=
+        base64-secret: NWM1ZTNjOWVmYTNjZTUyOGY5Yjk3OTk3ZTliNmRmOTNmNzMzOGIyZmE0Yzg3MGIzNjJkODUzZTdiOTEzMWRiYjdhOTI0YWE3YTlkOWVlMzc5ZWMxZThiZjFjM2E4MDhiYmQwN2RhNDRlNzhmYjlkNWU2OWNlMmM5MDhhZTcwYzg=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

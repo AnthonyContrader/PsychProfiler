@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "micro2Answer": {
+      "home": {
+        "title": "Answers",
+        "createLabel": "Genera un nuovo Answer",
+        "createOrEditLabel": "Genera o modifica un Answer",
+        "notFound": "No Answers found"
+      },
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Answer {{ id }}?"
+      },
+      "detail": {
+        "title": "Answer"
+      },
+      "cand": "Cand",
+      "ans": "Ans",
+      "answer_quest": "Answer Quest"
+    }
+  },
+  "micro2App": {
+    "micro2Answer": {
+      "created": "&Egrave; stato generato un nuovo Answer con identificatore { param }}",
+      "updated": "&Egrave; stato aggiornato Answer identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Answer con identificatore {{ param }}"
+    }
+  }
+}

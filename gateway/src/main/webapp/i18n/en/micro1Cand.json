@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "micro1Cand": {
+      "home": {
+        "title": "Cands",
+        "createLabel": "Create a new Cand",
+        "createOrEditLabel": "Create or edit a Cand",
+        "notFound": "No Cands found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Cand {{ id }}?"
+      },
+      "detail": {
+        "title": "Cand"
+      },
+      "name": "Name",
+      "surname": "Surname",
+      "age": "Age",
+      "experience": "Experience",
+      "user": "User"
+    }
+  },
+  "micro1App": {
+    "micro1Cand": {
+      "created": "A new Cand is created with identifier {{ param }}",
+      "updated": "A Cand is updated with identifier {{ param }}",
+      "deleted": "A Cand is deleted with identifier {{ param }}"
+    }
+  }
+}

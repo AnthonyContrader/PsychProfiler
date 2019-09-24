@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-answer-heading" jhiTranslate="gatewayApp.micro2Answer.home.createOrEditLabel">Create or edit a Answer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.micro2Answer.cand" for="field_cand">Cand</label>
+                    <input type="text" class="form-control" name="cand" id="field_cand"
+                           formControlName="cand"/>
+                    <div *ngIf="editForm.get('cand').invalid && (editForm.get('cand').dirty || editForm.get('cand').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('cand').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.micro2Answer.ans" for="field_ans">Ans</label>
+                    <input type="number" class="form-control" name="ans" id="field_ans"
+                           formControlName="ans"/>
+                    <div *ngIf="editForm.get('ans').invalid && (editForm.get('ans').dirty || editForm.get('ans').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ans').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('ans')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.micro2Answer.answer_quest" for="field_answer_quest">Answer Quest</label>
+                    <select class="form-control" id="field_answer_quest" name="answer_quest" formControlName="answer_questId">
+                        <option *ngIf="!editForm.get('answer_questId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="questOption.id" *ngFor="let questOption of quests; trackBy: trackQuestById">{{questOption.quest}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('answer_questId').invalid && (editForm.get('answer_questId').dirty || editForm.get('answer_questId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('answer_questId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

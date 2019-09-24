@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: DEBUG
     io.github.jhipster: DEBUG
-    com.contrader.psychprofiler: DEBUG
+    com.contrader.app: DEBUG
 
 spring:
   profiles:
@@ -102,9 +102,13 @@ jhipster:
     authorized-microservices-endpoints: # Access Control Policy, if left empty for a route, all endpoints will be accessible
       app1: /api,/v2/api-docs # recommended dev configuration
   cache: # Cache configuration
-    ehcache: # Ehcache configuration
-      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
-      max-entries: 100 # Number of objects in each cache entry
+    hazelcast: # Hazelcast distributed cache
+      time-to-live-seconds: 3600
+      backup-count: 1
+      management-center: # Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+        enabled: false
+        update-interval: 3
+        url: http://localhost:8180/mancenter
   # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
   cors:
     allowed-origins: '*'
@@ -117,7 +121,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: MDc0MTZmZGE5YTI0ZTVjZjY3ZmI4Mzk0Mzc4ZTE0NGMwMzI5NjMzZDRlOTQxMTg4MGU3NTk5NDkyNGE2YzBkMzM1NDkxNjI1ZjBmNDVlYWRlZDBlYjViMmZmN2U1MzJkNDIzMGQxMjhlMTgwZWVhNjk0NTVmYmJjZWQ4YmY5Yzc=
+        base64-secret: NWM1ZTNjOWVmYTNjZTUyOGY5Yjk3OTk3ZTliNmRmOTNmNzMzOGIyZmE0Yzg3MGIzNjJkODUzZTdiOTEzMWRiYjdhOTI0YWE3YTlkOWVlMzc5ZWMxZThiZjFjM2E4MDhiYmQwN2RhNDRlNzhmYjlkNWU2OWNlMmM5MDhhZTcwYzg=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
